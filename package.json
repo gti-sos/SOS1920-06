@@ -1,0 +1,23 @@
+{
+  "name": "sos1920-06",
+  "version": "0.0.0",
+  "description": "Our sources of information are oriented to analyze the relationship between the level of investment in R&D, GDP and the number of unemployed worldwide",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gti-sos/SOS1920-06.git"
+  },
+  "author": "Leandro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gti-sos/SOS1920-06/issues"
+  },
+  "homepage": "https://github.com/gti-sos/SOS1920-06#readme",
+  "dependencies": {
+    "cool-ascii-faces": "^1.3.4"
+  }
+}
