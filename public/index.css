@@ -1,0 +1,10 @@
+body{
+	font-family: "Lucida Grande";
+	background-color: black;
+}
+
+.text{
+	color: white;
+	margin-left: 100 px;
+	font-size: 200 px;
+}
