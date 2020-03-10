@@ -7,7 +7,7 @@ var port = process.env.PORT || 80; //Se pone la variable y si no, pues toma el v
 app.get("/cool", (request,response) =>{ //Cuando te pida /cool, ejecútame..
 	response.send("<html>"+cool()+"</html>");
 }); 
-app.listen(80, () => { //No es recomendable poner el puerto 80, en heroku habrá que especificarle el puerto.
+app.listen(port, () => { //No es recomendable poner el puerto 80, en heroku habrá que especificarle el puerto.
 	console.log("Server ready");
 });
 
