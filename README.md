@@ -12,4 +12,4 @@
 -  **APIs**:
     - [https://sos1920-06.herokuapp.com/api/v1/acc-stats/docs](https://sos1920-06.herokuapp.com/api/v1/acc-stats/docs) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
     - [https://sos1920-06.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos1920-06.herokuapp.com/api/v1/my-awesome-resource-2/docs) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
-    - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales](https://sos1920-06.herokuapp.com/api/v1/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
+    - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales/docs](https://sos1920-06.herokuapp.com/api/v1/lottery-sales/docs) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
