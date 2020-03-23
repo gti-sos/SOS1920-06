@@ -13,6 +13,13 @@ const BASE_API_URL = "/api/v1";
 
 var sales = [];
 
+
+app.get(BASE_API_PATH + "/api/v1/lottery-sales", (req, res) => {
+        res.redirect("https://documenter.getpostman.com/view/1805660/SzS8u6M5");
+    });
+
+//
+
 // GET LOADINITIALDATA
 app.get(BASE_API_URL + "/lottery-sales/loadInitialData", (req,res) => {
     
