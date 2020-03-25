@@ -259,9 +259,6 @@ app.delete(BASE_API_URL+"/lottery-sales/:province/:year", (req,res)=>{
 
 
 // ----------------------- API ALVARO -----------------------
-
-var apiRest = {};
-
 var stats = [
 	{ 
 		province: "Madrid",
@@ -297,6 +294,13 @@ var stats = [
 		total: 229,
 		interurban: 174,
 		urban: 55	
+	},
+	{ 
+		province: "Teruel",
+		year: 2015,
+		total: 2381,
+		interurban: 1377,
+		urban: 1004	
 	}
 ];
 
@@ -304,60 +308,113 @@ var stats = [
 app.get(BASE_API_URL+"/not-hospitalized-stats", (req,res) =>{
 	res.send(JSON.stringify(stats,null,2));
 });
-
-
-// POST a la ruta base /not-hospitalized-stats
-app.post(BASE_API_URL+"/not-hospitalized-stats",(req,res) =>{
-	var newStat = req.body;
-	if((newStat == "") || (newStat.province == null)){
-		res.sendStatus(400,"BAD REQUEST");
-	} else {
-		stats.push(newStat); 	
-		res.sendStatus(201,"CREATED");
-	}
-});
-
-// DELETE CONTACTS
-
-// GET CONTACT/XXX
-
+// GET a varios recursos con provincia /not-hospitalized-stats/Sevilla
 app.get(BASE_API_URL+"/not-hospitalized-stats/:province", (req,res)=>{
-	
 	var province = req.params.province;
-	
 	var filteredStats = stats.filter((c) => {
 		return (c.province == province);
 	});
-	
-	
 	if(filteredStats.length >= 1){
-		res.send(filteredStats[0]);
+		res.send(filteredStats);
+		res.sendStatus(200,"OK");
 	}else{
-		res.sendStatus(404,"CONTACT NOT FOUND");
+		res.sendStatus(404,"NOT FOUND");
 	}
 });
-
-// PUT CONTACT/XXX
-
-// DELETE CONTACT/XXX
-
-app.delete(BASE_API_URL+"/contacts/:name", (req,res)=>{
-	
-	var name = req.params.name;
-	
-	var filteredContacts = contacts.filter((c) => {
-		return (c.name != name);
+// GET a un recurso concreto /not-hospitalized-stats/Sevilla/2015
+app.get(BASE_API_URL+"/not-hospitalized-stats/:province/:year", (req,res) =>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredStats = stats.filter((c) => {
+		return (c.province == province && c.year == year);
 	});
-	
-	
-	if(filteredContacts.length < contacts.length){
-		contacts = filteredContacts;
-		res.sendStatus(200);
+	if(filteredStats.length == 1){
+		res.send(filteredStats[0]);
+		res.sendStatus(200,"OK");
 	}else{
-		res.sendStatus(404,"CONTACT NOT FOUND");
+		res.sendStatus(404,"NOT FOUND");
 	}
-	
-	
+});
+// POST a la ruta base /not-hospitalized-stats
+app.post(BASE_API_URL+"/not-hospitalized-stats",(req,res) =>{
+	var newStat = req.body;
+	var provinceNewStat = req.body.province;
+	var yearNewStat = req.body.year;
+	var filteredStats = stats.filter((c) => {
+		return (c.province == provinceNewStat && c.year == yearNewStat);
+	});
+	if((newStat == "") || (newStat.province == null) || (newStat.year == null) || (newStat.total == null) || (newStat.interurban == null) || (newStat.urban == null)){
+		res.sendStatus(400,"BAD REQUEST");
+	} else if(filteredStats.length >= 1){
+		res.sendStatus(409,"CONFLICT");
+	} else {
+		stats.push(newStat);
+		res.sendStatus(201,"CREATED");
+	}
+});
+// POST a varios recursos con provincia /not-hospitalized-stats/Sevilla debe dar "Method Not Allowed"
+app.post(BASE_API_URL+"/not-hospitalized-stats/:province",(req,res) =>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+// POST a un recurso concreto /not-hospitalized-stats/Sevilla/2015 debe dar "Method Not Allowed"
+app.post(BASE_API_URL+"/not-hospitalized-stats/:province/:year",(req,res) =>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+// DELETE a la ruta base /not-hospitalized-stats
+app.delete(BASE_API_URL+"/not-hospitalized-stats", (req,res)=>{
+	stats = [];
+	res.sendStatus(200,"OK");
+});
+// DELETE a varios recursos concretos /not-hospitalized-stats/Sevilla
+app.delete(BASE_API_URL+"/not-hospitalized-stats/:province", (req,res)=>{
+	var province = req.params.province;
+	var filteredStats = stats.filter((c) => {
+		return (c.province != province);
+	});
+	if(filteredStats.length < stats.length){
+		stats = filteredStats;
+		res.sendStatus(200,"OK");
+	}else{
+		res.sendStatus(404,"NOT FOUND");
+	}
+});
+// DELETE a un recurso concreto /not-hospitalized-stats/Sevilla/2015
+app.delete(BASE_API_URL+"/not-hospitalized-stats/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredStats = stats.filter((c) => {
+		return (c.province != province || c.year != year);
+	});
+	if(filteredStats.length < stats.length){
+		stats = filteredStats;
+		res.sendStatus(200,"OK");
+	}else{
+		res.sendStatus(404,"NOT FOUND");
+	}
+});
+// PUT a la ruta base /not-hospitalized-stats debe dar "Method Not Allowed"
+app.put(BASE_API_URL+"/not-hospitalized-stats",(req,res) =>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+// PUT a varios recursos con provincia /not-hospitalized-stats/Sevilla debe dar "Method Not Allowed"
+app.put(BASE_API_URL+"/not-hospitalized-stats/:province",(req,res) =>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+// PUT a un recurso concreto
+app.put(BASE_API_URL +"/not-hospitalized-stats/:province/:year",(req,res)=>{
+    var province=req.params.province;
+    var year=req.params.year;
+    var updatedStat=req.body;
+    if((province != updatedStat.province) || (year!=updatedStat.year)){
+        res.sendStatus(400,"BAD REQUEST");
+    }else{
+        var filteredStats = stats.filter((c) => {
+        	return (c.province != province || c.year != year);
+        });      
+        stats = filteredStats;
+        stats.push(updatedStat);
+        res.sendStatus(200,"OK");
+    }
 });
 
 // ----------------------- API LEANDRO -----------------------
