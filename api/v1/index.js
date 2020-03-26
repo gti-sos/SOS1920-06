@@ -39,9 +39,9 @@ module.exports = function(app,BASE_PATH){
 		{ 
 			province: "Teruel",
 			year: 2015,
-			total: 2381,
-			interurban: 1377,
-			urban: 1004	
+			total: 144,
+			interurban: 116,
+			urban: 28	
 		}
 	];
 	// GET a datos iniciales /not-hospitalized-stats/loadInitialData
@@ -85,9 +85,9 @@ module.exports = function(app,BASE_PATH){
 		{ 
 			province: "Teruel",
 			year: 2015,
-			total: 2381,
-			interurban: 1377,
-			urban: 1004	
+			total: 144,
+			interurban: 116,
+			urban: 28	
 		}
 	];
 		if(stats.length==0){
