@@ -3,10 +3,6 @@ const express = require("express");
 var path = require("path");
 const bodyParser = require("body-parser");
 
-//Modularizacion alvaro------------
-var statsApi = require("./api");
-//---------------------------------
-
 
 var app = express();
 var port = process.env.PORT || 80; //Se pone la variable y si no, pues toma el valor 80, el puerto 80 vaya.
@@ -16,8 +12,17 @@ app.use("/", express.static("./public"));
 
 const BASE_API_URL = "/api/v1";
 
-//Modularización alvaro----------
+
 const BASE_PATH = "/api";
+
+
+// API ADRI
+var lotteryApi = require("./lottery-sales");
+lotteryApi(app,BASE_PATH);
+//------------------------------------------
+
+//Modularización alvaro----------
+var statsApi = require("./api");
 statsApi(app, BASE_PATH);
 //-------------------------------
 
