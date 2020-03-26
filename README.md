@@ -11,10 +11,10 @@
 - **URL**: [http://sos1920-06.herokuapp.com](http://sos1920-06.herokuapp.com)
 -  **APIs**:
     - [https://sos1920-06.herokuapp.com/api/v1/accstats](https://sos1920-06.herokuapp.com/api/v1/accstats) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
-    - [https://sos1920-06.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos1920-06.herokuapp.com/api/v1/my-awesome-resource-2/docs) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+    - [https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats](https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
     - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales](https://sos1920-06.herokuapp.com/api/v1/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
 	
 -  **Colecciones Postman**:
 	- [sos1920-06-accstats](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
-	- [sos1920-06-xxx](https://sos1920-06.herokuapp.com/api/v1/xxx) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+	- [sos1920-06-not-hospitalized-stats](https://sos1920-06.herokuapp.com/api/v1/xxx) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
 	- [sos1920-06-lottery-sales](https://documenter.getpostman.com/view/1805660/SzYT4ga7) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
