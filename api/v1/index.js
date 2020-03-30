@@ -42,6 +42,69 @@ module.exports = function(app,BASE_PATH){
 			total: 144,
 			interurban: 116,
 			urban: 28	
+		},
+		{ 
+			province: "Badajoz",
+			year: 1993,
+			total: 743,
+			interurban: 420,
+			urban: 323	
+		},
+		{ 
+			province: "Burgos",
+			year: 1994,
+			total: 1189,
+			interurban: 826,
+			urban: 363	
+		},
+		{ 
+			province: "Tarragona",
+			year: 1995,
+			total: 1676,
+			interurban: 1044,
+			urban: 632	
+		},
+		{ 
+			province: "Cuenca",
+			year: 1996,
+			total: 778,
+			interurban: 659,
+			urban: 119	
+		},
+		{ 
+			province: "Albacete",
+			year: 1997,
+			total: 815,
+			interurban: 462,
+			urban: 353	
+		},
+		{ 
+			province: "Badajoz",
+			year: 1998,
+			total: 878,
+			interurban: 490,
+			urban: 388	
+		},
+		{ 
+			province: "Burgos",
+			year: 1999,
+			total: 1454,
+			interurban: 1099,
+			urban: 355	
+		},
+		{ 
+			province: "Tarragona",
+			year: 2000,
+			total: 2179,
+			interurban: 1352,
+			urban: 827	
+		},
+		{ 
+			province: "Cuenca",
+			year: 2001,
+			total: 944,
+			interurban: 825,
+			urban: 119	
 		}
 	];
 	// GET a datos iniciales /not-hospitalized-stats/loadInitialData
@@ -88,6 +151,69 @@ module.exports = function(app,BASE_PATH){
 			total: 144,
 			interurban: 116,
 			urban: 28	
+		},
+		{ 
+			province: "Badajoz",
+			year: 1993,
+			total: 743,
+			interurban: 420,
+			urban: 323	
+		},
+		{ 
+			province: "Burgos",
+			year: 1994,
+			total: 1189,
+			interurban: 826,
+			urban: 363	
+		},
+		{ 
+			province: "Tarragona",
+			year: 1995,
+			total: 1676,
+			interurban: 1044,
+			urban: 632	
+		},
+		{ 
+			province: "Cuenca",
+			year: 1996,
+			total: 778,
+			interurban: 659,
+			urban: 119	
+		},
+		{ 
+			province: "Albacete",
+			year: 1997,
+			total: 815,
+			interurban: 462,
+			urban: 353	
+		},
+		{ 
+			province: "Badajoz",
+			year: 1998,
+			total: 878,
+			interurban: 490,
+			urban: 388	
+		},
+		{ 
+			province: "Burgos",
+			year: 1999,
+			total: 1454,
+			interurban: 1099,
+			urban: 355	
+		},
+		{ 
+			province: "Tarragona",
+			year: 2000,
+			total: 2179,
+			interurban: 1352,
+			urban: 827	
+		},
+		{ 
+			province: "Cuenca",
+			year: 2001,
+			total: 944,
+			interurban: 825,
+			urban: 119	
 		}
 	];
 		if(stats.length==0){
