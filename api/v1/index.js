@@ -1,5 +1,5 @@
 module.exports = function(app,BASE_PATH){
-	// ----------------------- API ALVARO ------------------------
+	// ----------------------- API ALVARO -------------------------
 	var stats = [
 		{ 
 			province: "Madrid",
