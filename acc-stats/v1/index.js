@@ -26,7 +26,7 @@ var accstats = [
 /**************************************************/
 
 
-app.get(BASE_API_URL + "/accstats/loadInitialData", (req, res) => {
+app.get(BASE_PATH + "/accstats/loadInitialData", (req, res) => {
 	
 	var accstats = [
 	{ 
@@ -53,7 +53,7 @@ app.get(BASE_API_URL + "/accstats/loadInitialData", (req, res) => {
 // GET accstats   
 ////////////////////////////////////////////////////
 
-app.get(BASE_API_URL+"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
+app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
 	res.send(JSON.stringify(accstats,null,2)); //En JSON devuelvo todos los contactos
 	console.log("Data sent: "+JSON.stringify(accstats, null, 2));
 });
@@ -63,7 +63,7 @@ app.get(BASE_API_URL+"/accstats", (req,res) =>{ //En req vienen los datos de la 
 // POST accstats   
 ////////////////////////////////////////////////////
 
-app.post(BASE_API_URL+"/accstats",(req,res) =>{
+app.post(BASE_PATH +"/accstats",(req,res) =>{
 	//accstats.push(req.body);  //En req me vienen los datos de la petición, cojo el body también
 	//Verificaremos ahora que es un contacto
 	var newAccstats = req.body;
@@ -79,7 +79,7 @@ app.post(BASE_API_URL+"/accstats",(req,res) =>{
 // PUT accstats
 ////////////////////////////////////////////////////
 
-app.put(BASE_API_URL+"/accstats/", (req,res)=>{
+app.put(BASE_PATH +"/accstats/", (req,res)=>{
 	res.sendStatus(405, "METHOD NOT ALLOWED");
 });
 
@@ -88,7 +88,7 @@ app.put(BASE_API_URL+"/accstats/", (req,res)=>{
 ////////////////////////////////////////////////////
 
 
-app.delete(BASE_API_URL+ "/accstats", (req,res) =>{
+app.delete(BASE_PATH + "/accstats", (req,res) =>{
 	accstats = ["YOU DON'T HAVE ANY accstats"];
 	res.sendStatus(200, "accstats DELETED");
 });
@@ -105,7 +105,7 @@ app.delete(BASE_API_URL+ "/accstats", (req,res) =>{
 ////////////////////////////////////////////////////
 
 
-app.get(BASE_API_URL+"/accstats/:province", (req,res)=>{ //El :province lo que hace es como que crea una variable que puede tener cualquier valor, yo puedo tener /:org /:loquesea yo puedo tener los que yo quiera
+app.get(BASE_PATH +"/accstats/:province", (req,res)=>{ //El :province lo que hace es como que crea una variable que puede tener cualquier valor, yo puedo tener /:org /:loquesea yo puedo tener los que yo quiera
 	//¿Cómo accedería al valor concreto de lo que me ha llegado? Pues así con el params el nombre que yo le haya puesto en el : con param me lo pilla
 	var province = req.params.province;
 	
@@ -127,7 +127,7 @@ app.get(BASE_API_URL+"/accstats/:province", (req,res)=>{ //El :province lo que h
 // POST accstats/XXX Es decir, a un recurso en concreto   
 ////////////////////////////////////////////////////
 
-app.post(BASE_API_URL+"/accstats/:province", (req,res)=>{
+app.post(BASE_PATH +"/accstats/:province", (req,res)=>{
 	res.sendStatus(405, "METHOD NOT ALLOWED");
 });
 
@@ -136,7 +136,7 @@ app.post(BASE_API_URL+"/accstats/:province", (req,res)=>{
 // PUT accstats/XXX Es decir, a un recurso en concreto   
 ////////////////////////////////////////////////////
 
-app.put(BASE_API_URL+"/accstats/:province", (req,res)=>{
+app.put(BASE_PATH +"/accstats/:province", (req,res)=>{
 	var province = req.params.province;
 	var body = req.body;
 	
@@ -164,7 +164,7 @@ app.put(BASE_API_URL+"/accstats/:province", (req,res)=>{
 // DELETE accstats/XXX Es decir, a un recurso en concreto   
 ////////////////////////////////////////////////////
 
-app.delete(BASE_API_URL+"/accstats/:province", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
+app.delete(BASE_PATH +"/accstats/:province", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
 	var province = req.params.province;
 	
 	var filteredAccstats = accstats.filter((c) => {
