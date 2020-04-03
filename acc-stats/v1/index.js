@@ -101,7 +101,7 @@ app.delete(BASE_PATH + "/accstats", (req,res) =>{
 //  ========> AHORA SOBRE ELEMENTOS EN CONCRETO...
 
 ////////////////////////////////////////////////////
-// GET accstats/XXX Es decir, a un recurso en concreto   
+// GET accstats/XXX Es decir, a varios con provincia
 ////////////////////////////////////////////////////
 
 
@@ -121,29 +121,66 @@ app.get(BASE_PATH +"/accstats/:province", (req,res)=>{ //El :province lo que hac
 	}
 });
 
+////////////////////////////////////////////////////
+// GET accstats/XXX Es decir, a uno en concreto
+////////////////////////////////////////////////////	
+	
+app.get(BASE_PATH +"/accstats/:province/:year", (req,res)=>{ //El :province lo que hace es como que crea una variable que puede tener cualquier valor, yo puedo tener /:org /:loquesea yo puedo tener los que yo quiera
+	//¿Cómo accedería al valor concreto de lo que me ha llegado? Pues así con el params el nombre que yo le haya puesto en el : con param me lo pilla
+	var province = req.params.province;
+	var year = req.params.year;
+	
+	var filteredAccstats = accstats.filter((p) => {
+		//Le digo que solo me deje pasar en el caso de que el contacto tenga el mismo nombre que el que me están pasando
+		return (p.province == province && p.year == year);
+	});
+	
+	if(filteredAccstats.length >= 1){
+		res.send(filteredAccstats[0]); //Devolvería el primer elemento de ese array
+	}else{
+		res.sendStatus(404, "ACCSTAT NOT FOUND");
+	}
+});
 
 
 ////////////////////////////////////////////////////
-// POST accstats/XXX Es decir, a un recurso en concreto   
+// POST accstats/XXX Es decir, a varios recursos con provincia  
 ////////////////////////////////////////////////////
 
 app.post(BASE_PATH +"/accstats/:province", (req,res)=>{
 	res.sendStatus(405, "METHOD NOT ALLOWED");
 });
+	
+////////////////////////////////////////////////////
+// POST accstats/XXX Es decir, a uno en concreto 
+////////////////////////////////////////////////////
 
+app.post(BASE_PATH +"/accstats/:province/:year", (req,res)=>{
+	res.sendStatus(405, "METHOD NOT ALLOWED");
+});
+
+	
+////////////////////////////////////////////////////
+// PUT accstats/XXX Es decir, a varios recursos con provincia   
+////////////////////////////////////////////////////
+	
+app.put(BASE_PATH +"/accstats/:province", (req,res)=>{
+	res.sendStatus(405, "METHOD NOT ALLOWED");
+});
 
 ////////////////////////////////////////////////////
 // PUT accstats/XXX Es decir, a un recurso en concreto   
 ////////////////////////////////////////////////////
 
-app.put(BASE_PATH +"/accstats/:province", (req,res)=>{
+app.put(BASE_PATH +"/accstats/:province/:year", (req,res)=>{
 	var province = req.params.province;
+	var year = req.params.year;
 	var body = req.body;
 	
 	var updatedAccstats = accstats.map((c) => {
 		var updatedC = c;
 		
-		if (c.province == province) {
+		if (c.province == province && c.year == year) {
 			for (var p in body) {
 				updatedC[p] = body[p];
 			}	
@@ -161,14 +198,34 @@ app.put(BASE_PATH +"/accstats/:province", (req,res)=>{
 
 
 ////////////////////////////////////////////////////
+// DELETE accstats/XXX Es decir, a varios recursos con provincia
+////////////////////////////////////////////////////
+	
+app.delete(BASE_PATH +"/accstats/:province", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
+	var province = req.params.province;
+
+	var filteredAccstats = accstats.filter((c) => {
+		return (c.province != province);
+	});
+	
+	if(filteredAccstats.length < accstats.length){
+		accstats = filteredAccstats;
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"ACCSTAT NOT FOUND");
+	}	
+});
+	
+////////////////////////////////////////////////////
 // DELETE accstats/XXX Es decir, a un recurso en concreto   
 ////////////////////////////////////////////////////
 
-app.delete(BASE_PATH +"/accstats/:province", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
+app.delete(BASE_PATH +"/accstats/:province/:year", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
 	var province = req.params.province;
+	var year = req.params.year;
 	
 	var filteredAccstats = accstats.filter((c) => {
-		return (c.province != province);
+		return (c.province != province || c.year != year);
 	});
 	
 	
