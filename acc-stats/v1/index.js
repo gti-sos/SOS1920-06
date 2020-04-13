@@ -1,6 +1,15 @@
 module.exports = function(app,BASE_PATH){
 
-var accstats = [
+	const dataStore = require("nedb");
+	const path = require("path");
+	const dbFileName = path.join(__dirname,"accstats.db"); 	
+	const db = new dataStore({
+					filename: dbFileName,
+					autoload: true
+	
+	});
+	
+var initialAccstats = [
 	{ 
 		province: "Madrid",
 		year: 2014,
@@ -14,11 +23,16 @@ var accstats = [
 		accvictotal: 6515,
 		accvicinter: 1945,
 		accfall: 58	
+	},
+	
+	{ 
+		province: "Cádiz",
+		year: 2017,
+		accvictotal: 4207,
+		accvicinter: 1186,
+		accfall: 34
 	}
 ];
-
-
-//const BASE_API_URL = "/api/v1"; //Tendremos aqui la URL Base, la api el path...
 
 
 /**************************************************/
@@ -28,24 +42,11 @@ var accstats = [
 
 app.get(BASE_PATH + "/accstats/loadInitialData", (req, res) => {
 	
-	var accstats = [
-	{ 
-		province: "Madrid",
-		year: 2014,
-		accvictotal: 19942,
-		accvicinter: 4324,
-		accfall: 114
-	},
-	{ 
-		province: "Sevilla",
-		year: 2018,
-		accvictotal: 6515,
-		accvicinter: 1945,
-		accfall: 58	
-	}
-];
 	console.log(". . . Loading initial data");
-	res.send(JSON.stringify(accstats,null,2));	
+	db.remove({}, { multi: true }, function(err, numRemoved) {});
+	db.insert(initialAccstats);
+	res.sendStatus(200);
+	console.log("Initial Accstats loaded: "+JSON.stringify(initialAccstats, null, 2));
 });
 
 
@@ -53,9 +54,25 @@ app.get(BASE_PATH + "/accstats/loadInitialData", (req, res) => {
 // GET accstats   
 ////////////////////////////////////////////////////
 
-app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
+	/**
+	. . . Lo que había antes 
+	
+	app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
 	res.send(JSON.stringify(accstats,null,2)); //En JSON devuelvo todos los contactos
 	console.log("Data sent: "+JSON.stringify(accstats, null, 2));
+	});
+	**/
+	
+app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
+	
+	console.log("New GET .../accstats");
+	db.find({}, (err, accstats) => {
+		accstats.forEach( (p) => {
+			delete p._id;
+		});
+		res.send(JSON.stringify(accstats, null, 2));
+		console.log("Data sent: "+JSON.stringify(accstats, null,2));
+	})
 });
 
 
@@ -64,13 +81,19 @@ app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la pe
 ////////////////////////////////////////////////////
 
 app.post(BASE_PATH +"/accstats",(req,res) =>{
-	//accstats.push(req.body);  //En req me vienen los datos de la petición, cojo el body también
-	//Verificaremos ahora que es un contacto
+
 	var newAccstats = req.body;
-	if((newAccstats == "") || (newAccstats.province == null)){  //Si está vacío o es nulo
+	if(
+		newAccstats == {} ||
+	    (newAccstats.province == null || newAccstats.province == '') ||
+		(newAccstats.year == null || newAccstats.year == '') ||
+		(newAccstats.accvictotal == null || newAccstats.accvictotal == '') ||
+		(newAccstats.accvicinter == null || newAccstats.accvicinter == '') ||
+		(newAccstats.accfall == null || newAccstats.accfall == '')
+		){
 		res.sendStatus(400, "BAD REQUEST");
 	}else{
-		accstats.push(newAccstats);
+		db.insert(newAccstats);
 		res.sendStatus(201,"CREATED"); 
 	}
 });
@@ -89,7 +112,7 @@ app.put(BASE_PATH +"/accstats/", (req,res)=>{
 
 
 app.delete(BASE_PATH + "/accstats", (req,res) =>{
-	accstats = ["YOU DON'T HAVE ANY accstats"];
+	db.remove({}, { multi: true }, function(err, numRemoved) {});
 	res.sendStatus(200, "accstats DELETED");
 });
 
@@ -101,7 +124,7 @@ app.delete(BASE_PATH + "/accstats", (req,res) =>{
 //  ========> AHORA SOBRE ELEMENTOS EN CONCRETO...
 
 ////////////////////////////////////////////////////
-// GET accstats/XXX Es decir, a varios con provincia
+// GET accstats/XXX Es decir, a varios con provincia        
 ////////////////////////////////////////////////////
 
 
@@ -109,16 +132,12 @@ app.get(BASE_PATH +"/accstats/:province", (req,res)=>{ //El :province lo que hac
 	//¿Cómo accedería al valor concreto de lo que me ha llegado? Pues así con el params el nombre que yo le haya puesto en el : con param me lo pilla
 	var province = req.params.province;
 	
-	var filteredAccstats = accstats.filter((p) => {
-		//Le digo que solo me deje pasar en el caso de que el contacto tenga el mismo nombre que el que me están pasando
-		return (p.province == province);
+	db.find({province: province}, (err, accstats) => {
+		accstats.forEach(e => {
+			delete e._id;
+		});
+		res.send(JSON.stringify(accstats[0], null, 2)); //En este get me saca un objeto no el array de los objetos
 	});
-	
-	if(filteredAccstats.length >= 1){
-		res.send(filteredAccstats[0]); //Devolvería el primer elemento de ese array
-	}else{
-		res.sendStatus(404, "ACCSTAT NOT FOUND");
-	}
 });
 
 ////////////////////////////////////////////////////
@@ -128,19 +147,17 @@ app.get(BASE_PATH +"/accstats/:province", (req,res)=>{ //El :province lo que hac
 app.get(BASE_PATH +"/accstats/:province/:year", (req,res)=>{ //El :province lo que hace es como que crea una variable que puede tener cualquier valor, yo puedo tener /:org /:loquesea yo puedo tener los que yo quiera
 	//¿Cómo accedería al valor concreto de lo que me ha llegado? Pues así con el params el nombre que yo le haya puesto en el : con param me lo pilla
 	var province = req.params.province;
-	var year = req.params.year;
+	var year = parseInt(req.params.year);
 	
-	var filteredAccstats = accstats.filter((p) => {
-		//Le digo que solo me deje pasar en el caso de que el contacto tenga el mismo nombre que el que me están pasando
-		return (p.province == province && p.year == year);
+	db.find({province: province, year: year}, (err, accstats) => {
+		accstats.forEach(e => {
+			delete e._id;
+		});
+		res.send(JSON.stringify(accstats[0], null, 2)); //En este get me saca un objeto no el array de los objetos
 	});
-	
-	if(filteredAccstats.length >= 1){
-		res.send(filteredAccstats[0]); //Devolvería el primer elemento de ese array
-	}else{
-		res.sendStatus(404, "ACCSTAT NOT FOUND");
-	}
 });
+	
+	
 
 
 ////////////////////////////////////////////////////
@@ -174,46 +191,33 @@ app.put(BASE_PATH +"/accstats/:province", (req,res)=>{
 
 app.put(BASE_PATH +"/accstats/:province/:year", (req,res)=>{
 	var province = req.params.province;
-	var year = req.params.year;
+	var year = parseInt(req.params.year);
 	var body = req.body;
+	var newProv = body.province;
+	var newYear = parseInt(body.year);
 	
-	var updatedAccstats = accstats.map((c) => {
-		var updatedC = c;
-		
-		if (c.province == province && c.year == year) {
-			for (var p in body) {
-				updatedC[p] = body[p];
-			}	
-		}
-		return (updatedC);
-	});
-	
-	if (updatedAccstats.length == 0) {
-		res.sendStatus(404, "ACCSTAT NOT FOUND");
-	} else {
-		accstats = updatedAccstats;
-		res.sendStatus(200, "OK");
+	if(province != newProv || year != newYear){
+		res.sendStatus(400, "ACCSTAT NOT FOUND");
+	}else{
+		db.update({province: province, year: year}, 
+				  	{$set: {accvictotal: body.accvictotal,  accvicinter: body.accvicinter,  accfall: body.accfall}}, //Lo que dejo que modifique
+					{}, //multi
+				  	function(err, numReplaced) {}
+		);
+		res.sendStatus(200, "ACCSTAT MODIFIED");
 	}
 });
 
 
 ////////////////////////////////////////////////////
-// DELETE accstats/XXX Es decir, a varios recursos con provincia
+// DELETE accstats/XXX Es decir, a varios recursos con provincia       
 ////////////////////////////////////////////////////
 	
 app.delete(BASE_PATH +"/accstats/:province", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
 	var province = req.params.province;
 
-	var filteredAccstats = accstats.filter((c) => {
-		return (c.province != province);
-	});
-	
-	if(filteredAccstats.length < accstats.length){
-		accstats = filteredAccstats;
-		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"ACCSTAT NOT FOUND");
-	}	
+	db.remove({province: province}, {}, function(err, numRemoved) {});
+	res.sendStatus(200, "ACCSTAT REMOVED");
 });
 	
 ////////////////////////////////////////////////////
@@ -222,19 +226,11 @@ app.delete(BASE_PATH +"/accstats/:province", (req,res)=>{ //Para el delete podr�
 
 app.delete(BASE_PATH +"/accstats/:province/:year", (req,res)=>{ //Para el delete podría usar un filter pero quitando el que me llega
 	var province = req.params.province;
-	var year = req.params.year;
+	var year = parseInt(req.params.year);
 	
-	var filteredAccstats = accstats.filter((c) => {
-		return (c.province != province || c.year != year);
-	});
+	db.remove({province: province, year: year}, {}, function(err, numRemoved) {});
+	res.sendStatus(200, "ACCSTAT REMOVED");
 	
-	
-	if(filteredAccstats.length < accstats.length){
-		accstats = filteredAccstats;
-		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"ACCSTAT NOT FOUND");
-	}	
 });
 	
 }
