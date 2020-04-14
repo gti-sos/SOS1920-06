@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"province":"Asturias","year":2018,"accvictotal":2068,"accvicinter":937,"accfall":43,"_id":"M2jokjr7G0O32xKl"}
 {"$$deleted":true,"_id":"M2jokjr7G0O32xKl"}
 {"province":"Madrid","year":2014,"accvictotal":19942,"accvicinter":4324,"accfall":114,"_id":"3Zr03tQA98vkfOME"}
@@ -19,3 +20,8 @@
 {"$$deleted":true,"_id":"XzcQJOx5i4GPnmxF"}
 {"$$deleted":true,"_id":"Y3k9xiVIG0KYoWV1"}
 {"province":"Asturias","year":2018,"accvictotal":2068,"accvicinter":937,"accfall":43,"_id":"8IK61K2tkyksJNtg"}
+=======
+{"province":"Cádiz","year":2017,"accvictotal":4207,"accvicinter":1186,"accfall":34,"_id":"BU4PlwRVTJ2cZ0w2"}
+{"province":"Madrid","year":2014,"accvictotal":19942,"accvicinter":4324,"accfall":114,"_id":"JBKQmRDJFWAH7d8Z"}
+{"province":"Sevilla","year":2018,"accvictotal":6515,"accvicinter":1945,"accfall":58,"_id":"JzVMRmpcJ9SdCefp"}
+>>>>>>> f675899c9467af66275a724e8fcdd1b93a79cb69
