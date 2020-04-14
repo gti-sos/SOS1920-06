@@ -17,4 +17,4 @@
 -  **Colecciones Postman**:
 	- [sos1920-06-accstats](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
 	- [sos1920-06-not-hospitalized-stats](https://documenter.getpostman.com/view/7064258/SzYUa1vw) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
-	- [sos1920-06-lottery-sales](https://documenter.getpostman.com/view/1805660/SzYT4ga7) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
+	- [sos1920-06-lottery-sales](https://documenter.getpostman.com/view/1805660/Szf25Vzn) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
