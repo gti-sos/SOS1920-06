@@ -21,9 +21,9 @@ var lotteryApi = require("./lottery-sales");
 lotteryApi(app,BASE_PATH);
 //------------------------------------------
 
-//Modularización alvaro----------
-var statsApi = require("./api");
-statsApi(app, BASE_PATH);
+//Modularizaciรณn alvaro----------
+var statsApi = require("./nhsAPI");
+statsApi(app);
 //-------------------------------
 
 // API LEANDRO
@@ -32,7 +32,7 @@ accstats(app, BASE_PATH);
 
  
 // ----------------------- FIN CODIGO ------------------------
-app.listen(port, () => { //No es recomendable poner el puerto 80, en heroku habrá que especificarle el puerto.
+app.listen(port, () => { //No es recomendable poner el puerto 80, en heroku habrรก que especificarle el puerto.
 	console.log("Server ready");
 });
 
