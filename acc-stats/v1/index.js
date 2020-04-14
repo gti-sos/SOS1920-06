@@ -65,6 +65,70 @@ app.get(BASE_PATH + "/accstats/loadInitialData", (req, res) => {
 	
 app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la petición.
 	
+	var limit = parseInt(req.query.limit);
+	var offset = parseInt(req.query.offset);
+	var search = {};
+	
+	if(req.query.province) search['province'] = req.query.province;
+	if(req.query.year) search['year'] = parseInt(req.query.year);
+	////////////
+	if(req.query.accvictotalMin && req.query.accvictotalMax)
+		search['accvictotal'] = {
+			$gte: parseInt(req.query.accvictotalMin),
+			$lte: parseInt(req.query.accvictotalMax)
+		}
+	if(req.query.accvictotalMin && !req.query.accvictotalMax)
+		search['accvictotal'] = {$gte: parseInt(req.query.accvictotalMin)};
+	if(!req.query.accvictotalMin && req.query.accvictotalMax)
+		search['accvictotal'] = {$lte: parseInt(req.query.accvictotalMax)}
+	
+	
+	/////////////
+	if(req.query.accvicinterlMin && req.query.accvicinterMax)
+		search['accvicinter'] = {
+			$gte: parseInt(req.query.accvicinterMin),
+			$lte: parseInt(req.query.accvicinterMax)
+		}
+	if(req.query.accvicinterMin && !req.query.accvicinterMax)
+		search['accvicinter'] = {$gte: parseInt(req.query.accvicinterMin)};
+	if(!req.query.accvicinterMin && req.query.accvicinterMax)
+		search['accvicinter'] = {$lte: parseInt(req.query.accvicinterMax)};
+	////////////
+	if(req.query.accfallMin && req.query.accfallMax)
+		search['accfall'] = {
+			$gte: parseInt(req.query.accfallMin),
+			$lte: parseInt(req.query.accfallMax)
+		}
+	if(req.query.accfallMin && !req.query.accfallMax)
+		search['accfall'] = {$gte: parseInt(req.query.accfallMin)};
+	if(!req.query.accfallMin && req.query.accfallMax)
+		search['accfall'] = {$lte: parseInt(req.query.accfallMax)};
+	
+	
+
+	db
+		.find(search)
+		.skip(offset)
+		.limit(limit)
+		.exec(function(err, accstats) {
+			accstats.forEach(p => {
+				delete p._id;
+			});
+		
+		if(accstats == 0){
+			res.sendStatus(404, "ACCSTATS NOT FOUND");
+		}else{
+			res.send(JSON.stringify(accstats, null, 2));
+			console.log("Data sent: "+JSON.stringify(accstats, null,2));
+		}	
+	});
+});
+	
+	
+	
+	/** Al principio con NEDB.. (PARA URLS)
+	
+	
 	console.log("New GET .../accstats");
 	db.find({}, (err, accstats) => {
 		accstats.forEach( (p) => {
@@ -75,6 +139,7 @@ app.get(BASE_PATH +"/accstats", (req,res) =>{ //En req vienen los datos de la pe
 	})
 });
 
+	**/
 
 ////////////////////////////////////////////////////
 // POST accstats   
