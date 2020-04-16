@@ -1,3 +1,4 @@
 node_modules
 lottery-sales/v1sales.db
 nhsAPI/not-hospitalized-stats.db
+acc-stats/v1/accstats.db
