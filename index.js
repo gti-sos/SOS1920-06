@@ -15,21 +15,21 @@ const BASE_API_URL = "/api/v1";
 
 const BASE_PATH = "/api";
 
-
+/*
 // API ADRI
 var lotteryApi = require("./lottery-sales");
 lotteryApi(app,BASE_PATH);
 //------------------------------------------
-
+*/
 //Modularizaciรณn alvaro----------
-var statsApi = require("./nhsAPI");
+var statsApi = require("./src/back/nhsAPI");
 statsApi(app);
 //-------------------------------
-
+/*
 // API LEANDRO
 var accstats = require("./acc-stats");
 accstats(app, BASE_PATH);
-
+*/
  
 // ----------------------- FIN CODIGO ------------------------
 app.listen(port, () => { //No es recomendable poner el puerto 80, en heroku habrรก que especificarle el puerto.

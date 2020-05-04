@@ -1,4 +1,5 @@
 node_modules
-lottery-sales/v1sales.db
-nhsAPI/not-hospitalized-stats.db
-acc-stats/v1/accstats.db
+src/back/lottery-sales/v1sales.db
+src/back/nhsApi/not-hospitalized-stats.db
+src/back/acc-stats/v1/accstats.db
+/public/build/
