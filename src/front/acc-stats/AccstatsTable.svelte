@@ -211,7 +211,7 @@
 	</FormGroup>
 
 	<FormGroup style="width: 20%">
-		<Label> value: </Label>
+		<Label> Valor: </Label>
 		<Input type="text" name="inputCampo" id="inputCampo" bind:value="{value}"></Input>
 	</FormGroup>
 	<Button color="info" on:click="{search(campo, value)}"><i class="fas fa-search"></i>Buscar</Button>
