@@ -31,7 +31,120 @@ var initialAccstats = [
 		accvictotal: 4207,
 		accvicinter: 1186,
 		accfall: 34
-	}
+	},
+
+	{ 
+		province: "Jaén",
+		year: 2017,
+		accvictotal: 1386,
+		accvicinter: 635,
+		accfall: 35
+	},
+
+	{ 
+		province: "Almería",
+		year: 2016,
+		accvictotal: 1175,
+		accvicinter: 935,
+		accfall: 40
+	},
+
+	{ 
+		province: "Cantabria",
+		year: 2013,
+		accvictotal: 1269,
+		accvicinter: 1091,
+		accfall: 20
+	},
+
+	{ 
+		province: "Soria",
+		year: 2014,
+		accvictotal: 184,
+		accvicinter: 154,
+		accfall: 14
+	},
+
+	{ 
+		province: "Ceuta",
+		year: 2014,
+		accvictotal: 401,
+		accvicinter: 45,
+		accfall: 0
+	},
+
+	{ 
+		province: "Pontevedra",
+		year: 2017,
+		accvictotal: 2719,
+		accvicinter: 2017,
+		accfall: 31
+	},
+
+	{ 
+		province: "Girona",
+		year: 2015,
+		accvictotal: 3316,
+		accvicinter: 1734,
+		accfall: 41
+	},
+
+	{ 
+		province: "Valencia",
+		year: 2018,
+		accvictotal: 5083,
+		accvicinter: 2769,
+		accfall: 88
+	},
+	
+	{ 
+		province: "Burgos",
+		year: 2014,
+		accvictotal: 5083,
+		accvicinter: 747,
+		accfall: 24
+	},
+
+	{ 
+		province: "Albacete",
+		year: 2018,
+		accvictotal: 708,
+		accvicinter: 159,
+		accfall: 11
+	},
+
+	{ 
+		province: "Castellón",
+		year: 2018,
+		accvictotal: 885,
+		accvicinter: 491,
+		accfall: 105
+	},
+
+	{ 
+		province: "Huelva",
+		year: 2018,
+		accvictotal: 718,
+		accvicinter: 425,
+		accfall: 75
+	},
+
+	{ 
+		province: "Melilla",
+		year: 2015,
+		accvictotal: 594,
+		accvicinter: 1,
+		accfall: 2
+	},
+
+	{ 
+		province: "Ceuta",
+		year: 2018,
+		accvictotal: 297,
+		accvicinter: 41,
+		accfall: 2
+	},
+
 ];
 
 
