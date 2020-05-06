@@ -279,7 +279,7 @@
 		</PaginationItem>
 		{/if}
 
-		<PaginationItem class="{moreData ? '' : 'disabled'}">
+		<PaginationItem class="{moreData ? '' : 'enabled'}">
 		  <PaginationLink next href="#/accstats" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 
