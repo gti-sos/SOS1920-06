@@ -145,6 +145,45 @@ var initialAccstats = [
 		accfall: 2
 	},
 
+	{ 
+		province: "Segovia",
+		year: 2017,
+		accvictotal: 4592,
+		accvicinter: 205,
+		accfall: 10
+	},
+
+	{ 
+		province: "Coruña",
+		year: 2015,
+		accvictotal: 1443,
+		accvicinter: 900,
+		accfall: 47
+	},
+
+	{ 
+		province: "Málaga",
+		year: 2016,
+		accvictotal: 2215,
+		accvicinter: 862,
+		accfall: 57
+	},
+
+	{ 
+		province: "Ourense",
+		year: 2016,
+		accvictotal: 2304,
+		accvicinter: 232,
+		accfall: 15
+	},
+
+	{ 
+		province: "Barcelona",
+		year: 2015,
+		accvictotal: 19625,
+		accvicinter: 4968,
+		accfall: 131
+	}
 ];
 
 

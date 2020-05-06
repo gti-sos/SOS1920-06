@@ -98,7 +98,7 @@
 				}
 			}).then(function(res){
 				if (res.ok){
-					getAccstatsBasic();
+					getAccstats();
 					window.alert("Insertado con éxito");
 					//insertAlert();
 				}else if(res.status == 409){
