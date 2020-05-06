@@ -7,7 +7,7 @@
     //import Accstats from './acc-stats/App.svelte';
     //import EditAccstats from './acc-stats/EditAccstats.svelte';
     import NotHospitalizedStats from './nhsApi/App.svelte';
-	//import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
+	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
 
 	import NotFound from './NotFound.svelte';
 
@@ -18,7 +18,7 @@
         //"/accstats": Accstats,
         //"/accstats/:province/:year": EditAccstats,
         "/not-hospitalized-stats": NotHospitalizedStats,
-		//"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
+		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
 		"*": NotFound
 	};
 </script>
