@@ -22,7 +22,7 @@ lotteryApi(app,BASE_PATH);
 //------------------------------------------
 */
 //Modularizaciรณn alvaro----------
-var statsApi = require("./src/back/nhsAPI");
+var statsApi = require("./src/back/nhsApi");
 statsApi(app);
 //-------------------------------
 

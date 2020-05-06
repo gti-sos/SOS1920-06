@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"province":"Girona","year":2015,"accvictotal":3316,"accvicinter":1734,"accfall":41,"_id":"1gmrdnzcxLJ8rcAp"}
 {"province":"Pontevedra","year":2017,"accvictotal":2719,"accvicinter":2017,"accfall":31,"_id":"4MBLLSw3AdjKd225"}
 {"province":"Valencia","year":2018,"accvictotal":5083,"accvicinter":2769,"accfall":88,"_id":"629htm0trUjhwH7y"}
@@ -20,3 +21,27 @@
 {"province":"Burgos","year":2014,"accvictotal":5083,"accvicinter":747,"accfall":24,"_id":"lzd18aVSY8jfkKmL"}
 {"province":"Jaén","year":2017,"accvictotal":1386,"accvicinter":635,"accfall":35,"_id":"polgnXsOeAUxn1hX"}
 {"province":"Ceuta","year":2018,"accvictotal":297,"accvicinter":41,"accfall":2,"_id":"s39YodPWwwD1wkIP"}
+=======
+{"province":"Albacete","year":2018,"accvictotal":708,"accvicinter":159,"accfall":11,"_id":"2PbqPC8X7gAJ1KB9"}
+{"province":"Burgos","year":2014,"accvictotal":5083,"accvicinter":747,"accfall":24,"_id":"48zgF7u1fm0NLn8t"}
+{"province":"Segovia","year":2017,"accvictotal":4592,"accvicinter":205,"accfall":10,"_id":"5PKyOoQPwdI7L8BE"}
+{"province":"Cantabria","year":2013,"accvictotal":1269,"accvicinter":1091,"accfall":20,"_id":"5ni6NqzaLHeqkkX9"}
+{"province":"Ourense","year":2016,"accvictotal":2304,"accvicinter":232,"accfall":15,"_id":"7TQEQC3fZkbGfm39"}
+{"province":"Almería","year":2016,"accvictotal":1175,"accvicinter":935,"accfall":40,"_id":"8Cyr9xilaBAPraub"}
+{"province":"Málaga","year":2016,"accvictotal":2215,"accvicinter":862,"accfall":57,"_id":"8ToBmKnmvPnwx9Gb"}
+{"province":"Pontevedra","year":2017,"accvictotal":2719,"accvicinter":2017,"accfall":31,"_id":"D1OkVT0bdJ4FImEc"}
+{"province":"Barcelona","year":2015,"accvictotal":19625,"accvicinter":4968,"accfall":131,"_id":"DPTLSWhGrPZhY5io"}
+{"province":"Ceuta","year":2018,"accvictotal":297,"accvicinter":41,"accfall":2,"_id":"KF904c1MWzYgtgVf"}
+{"province":"Valencia","year":2018,"accvictotal":5083,"accvicinter":2769,"accfall":88,"_id":"UUArF1zlN27ddYiK"}
+{"province":"Castellón","year":2018,"accvictotal":885,"accvicinter":491,"accfall":105,"_id":"V4MZ4iMBAjoXg8as"}
+{"province":"Girona","year":2015,"accvictotal":3316,"accvicinter":1734,"accfall":41,"_id":"XbQmnFid5clpqfKW"}
+{"province":"Sevilla","year":2018,"accvictotal":6515,"accvicinter":1945,"accfall":58,"_id":"ZxUZgrTpJZUGQP3o"}
+{"province":"Huelva","year":2018,"accvictotal":718,"accvicinter":425,"accfall":75,"_id":"ecFFfk73MZ3M2Dd2"}
+{"province":"Ceuta","year":2014,"accvictotal":401,"accvicinter":45,"accfall":0,"_id":"ep4T4yaDrKP9hGpz"}
+{"province":"Coruña","year":2015,"accvictotal":1443,"accvicinter":900,"accfall":47,"_id":"j88YbTqUL6nxKS2K"}
+{"province":"Jaén","year":2017,"accvictotal":1386,"accvicinter":635,"accfall":35,"_id":"qJlTWJ8RYp9HvQTw"}
+{"province":"Soria","year":2014,"accvictotal":184,"accvicinter":154,"accfall":14,"_id":"tjbLTjg1Rdp8ivs2"}
+{"province":"Cádiz","year":2017,"accvictotal":4207,"accvicinter":1186,"accfall":34,"_id":"v39Zztg3oAN7B5pg"}
+{"province":"Madrid","year":2014,"accvictotal":19942,"accvicinter":4324,"accfall":114,"_id":"vs4lB7btrpLzunQD"}
+{"province":"Melilla","year":2015,"accvictotal":594,"accvicinter":1,"accfall":2,"_id":"zKUi06TFWweZvew2"}
+>>>>>>> 2521fdba9b78452b7193acc154c72eb4a21b500c
