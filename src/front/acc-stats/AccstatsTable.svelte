@@ -46,7 +46,7 @@
 	// - - - - - - - FUNCIÓN OBTENER ACCSTATS - - - - - - - //
 	async function getAccstatsBasic(){
 		console.log("Fetching accstats...");
-		const res = await fetch("/api/v1/accstats");
+		const res = await fetch("/api/v2/accstats");
 
 		if (res.ok){
 			console.log("Ok");
@@ -59,8 +59,8 @@
 	}
 	async function getAccstats(){
 		console.log("Fetching accstats...");
-		const res = await fetch("/api/v1/accstats?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages);
-		const resNext = await fetch("/api/v1/accstats?offset=" + numberElementsPages * (offset+1) + "&limit=" + numberElementsPages);
+		const res = await fetch("/api/v2/accstats?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages);
+		const resNext = await fetch("/api/v2/accstats?offset=" + numberElementsPages * (offset+1) + "&limit=" + numberElementsPages);
 
 		if (res.ok && resNext.ok){
 			console.log("Ok");
@@ -90,7 +90,7 @@
 
 			window.alert("¡Tienes que poner el nombre de la provincia y el año!");
 		}else{
-			const res = await fetch("/api/v1/accstats", {
+			const res = await fetch("/api/v2/accstats", {
 				method: "POST", 
 				body: JSON.stringify(newAccstat),
 				headers: {
@@ -101,8 +101,12 @@
 					getAccstatsBasic();
 					window.alert("Insertado con éxito");
 					//insertAlert();
+				}else if(res.status == 409){
+					window.alert("El elemento que acabas de insertar ya estaba creado");
+					console.log("El elemento que acabas de insertar ya estaba creado");
 				}else{
 					window.alert("Error al insertar el elemento");
+					console.log("Error al insertar el elemento");
 				}
 			});
 		}
@@ -112,7 +116,7 @@
 
 	async function deleteAccstat(province,year){
 		console.log("Deleting accstat ...");
-		const res = await fetch("/api/v1/accstats/"+ province + "/" + year, {
+		const res = await fetch("/api/v2/accstats/"+ province + "/" + year, {
 			method: "DELETE"
 		}).then(function(res){
 			if (res.ok) {
@@ -130,7 +134,7 @@
 
 	async function deleteAccstats(){
 		console.log("Deleting all accstats . . .");
-		const res = await fetch("/api/v1/accstats/",{
+		const res = await fetch("/api/v2/accstats/",{
 			method: "DELETE"
 		}).then(function(res){
 			if (res.ok) {
@@ -148,7 +152,7 @@
 	// - - - - - - - FUNCIÓN CARGAR DATOS - - - - - - - //
 	async function uploadAccstats(){
 		console.log("Uploading accstats . . .");
-		const res = await fetch("/api/v1/accstats/loadInitialData",{
+		const res = await fetch("/api/v2/accstats/loadInitialData",{
 			method: "GET"
 		}).then(function(res){
 			window.alert("Pulsa el botón 'Aceptar' para cargar todos los datos");
@@ -167,7 +171,7 @@
 	// - - - - - - - FUNCIÓN BUSCAR - - - - - - - //
 	async function search(campo, value){
 		console.log("Searching accstats: " + campo + "/" + value);
-		var url = "/api/v1/accstats";
+		var url = "/api/v2/accstats";
 
 		if (campo != "" && value!= ""){
 			url = url + "?" + campo + "=" + value;
@@ -179,6 +183,9 @@
 			const json = await res.json();
 			accstats = json;
 			console.log("Found" + accstats.length + "accstats");
+		}else if(res.status == 404){
+			window.alert("No hemos encontrado el dato que buscabas :(");
+			console.log("ERROR");
 		}else{
 			console.log("ERROR");
 		}

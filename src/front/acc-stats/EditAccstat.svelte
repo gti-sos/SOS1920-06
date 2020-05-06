@@ -19,7 +19,7 @@
 	// - - - - - - - FUNCIÓN OBTENER ACCSTATS - - - - - - - //
 	async function getAccstat(){
 		console.log("Fetching accstats...");
-		const res = await fetch("/api/v1/accstats/"+ params.province + "/" + params.year);
+		const res = await fetch("/api/v2/accstats/"+ params.province + "/" + params.year);
 
 		if (res.ok){
 			console.log("Ok");
@@ -39,7 +39,7 @@
 
 		console.log("Updating accstat ..." + JSON.stringify(params.province) + JSON.stringify(params.updatedYear));
 
-		const res = await fetch("/api/v1/accstats/"+params.province +"/"+ params.year, {
+		const res = await fetch("/api/v2/accstats/"+params.province +"/"+ params.year, {
 			method: "PUT", 
 			body: JSON.stringify({
 				province: params.province,
