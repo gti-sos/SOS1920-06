@@ -57,7 +57,15 @@
 				"Content-Type": "application/json"
 			}
 		}).then(function (res){
-			getStat();
+			if(res.ok){
+				getStat();
+				window.alert("Dato modificado correctamente.");
+			}else if(res.status==400){
+				window.alert("Campo mal escrito.No puede editarlo.");
+			}else{
+				errorMsg = " El tipo de error es: " + res.status + ", y quiere decir: " + res.statusText;
+				console.log("ERROR!");
+			};			
 		});
 	};
 
@@ -82,9 +90,9 @@
 				<tr>
 					<td>{updatedProvince}</td>
 					<td>{updatedYear}</td>
-					<td><input bind:value = "{updatedTotal}"></td>
-					<td><input bind:value = "{updatedInterurban}"></td>
-					<td><input bind:value = "{updatedUrban}"></td>
+					<td><input type = "number" bind:value = "{updatedTotal}"></td>
+					<td><input type = "number" bind:value = "{updatedInterurban}"></td>
+					<td><input type = "number" bind:value = "{updatedUrban}"></td>
 					<td><Button outline color="primary" on:click={updateStat}>Actualizar</Button></td>
 				</tr>
 			</tbody>
