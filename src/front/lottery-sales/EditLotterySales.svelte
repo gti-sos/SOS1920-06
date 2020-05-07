@@ -81,19 +81,18 @@
     }
 </script>
 <main>
-    <h3>Edit Sale <strong>{params.province + " " + params.year}</strong></h3>
+    <h3>Actualizar venta de <strong>{params.province + " " + params.year}</strong></h3>
     {#await sale}
         Loading sales...
     {:then sale}
         <Table bordered>
             <thead>
                 <tr>
-                    <th>Province</th>
-                    <th>Year</th>
-                    <th>Total</th>
-                    <th>Xmas</th>
-                    <th>Kid</th>
-                    <th>Actions</th>
+                    <th>Provincia</th>
+                    <th>Año</th>
+                    <th>Ventas totales (€)</th>
+                    <th>Ventas de navidad (€)</th>
+                    <th>Ventas del niño (€)</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,7 +102,7 @@
                     <td><input type="number" bind:value="{updatedTotal}"></td>
                     <td><input type="number" bind:value="{updatedXmas}"></td>
                     <td><input type="number" bind:value="{updatedKid}"></td>
-                    <td> <Button outline  color="primary" on:click={updatedSale}>Update</Button> </td>
+                    <td> <Button outline  color="primary" on:click={updatedSale}>Actualizar</Button> </td>
                 </tr>
         </tbody>
         </Table>
@@ -111,5 +110,5 @@
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
-    <Button outline color="secondary" on:click="{pop}">Back</Button>
+    <Button outline color="secondary" on:click="{pop}">Atrás</Button>
 </main>
