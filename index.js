@@ -15,12 +15,12 @@ const BASE_API_URL = "/api/v1";
 
 const BASE_PATH = "/api";
 
-/*
+
 // API ADRI
-var lotteryApi = require("./lottery-sales");
+var lotteryApi = require("./src/back/lottery-sales");
 lotteryApi(app,BASE_PATH);
 //------------------------------------------
-*/
+
 //Modularizaciรณn alvaro----------
 var statsApi = require("./src/back/nhsApi");
 statsApi(app);

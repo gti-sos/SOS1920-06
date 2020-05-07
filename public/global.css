@@ -64,3 +64,25 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+#previous,#next,#actual{
+	background-color: rgb(20, 61, 141);
+	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+}
+
+.right{
+text-align: center;
+}
+
+#tableSearch{
+margin: auto;
+display: inline-block;
+}
+
+#block{
+margin: auto;
+display: inline-block;
+}

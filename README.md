@@ -16,7 +16,7 @@
     - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales](https://sos1920-06.herokuapp.com/api/v1/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
 	
 -  **Colecciones Postman**:
-	- V1 [sos1920-06-accstats](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
-  - V2 [sos1920-06-accstats](https://documenter.getpostman.com/view/10637410/SzmcbedW) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
-	- [sos1920-06-not-hospitalized-stats](https://documenter.getpostman.com/view/7064258/SzYUa1vw) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
-	- [sos1920-06-lottery-sales](https://documenter.getpostman.com/view/1805660/Szf25Vzn) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
+    - [sos1920-06-accstats v1](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
+    - [sos1920-06-accstats v2](https://documenter.getpostman.com/view/10637410/SzmcbedW) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
+    - [sos1920-06-not-hospitalized-stats](https://documenter.getpostman.com/view/7064258/SzYUa1vw) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+    - [sos1920-06-lottery-sales](https://documenter.getpostman.com/view/1805660/Szf25Vzn) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
