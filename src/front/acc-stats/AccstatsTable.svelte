@@ -211,9 +211,9 @@
 				<option disabled selected></option>
 				<option value="province">Provincia</option>
 				<option value="year">Año</option>
-				<option value="accvictotal">Accvictotal</option>
-				<option value="accvicinter">Accvicinter</option>
-				<option value="accfall">Accfall</option>
+				<option value="accvictotalMin">Accvictotal</option>
+				<option value="accvicinterMin">Accvicinter</option>
+				<option value="accfallMin">Accfall</option>
 		</Input>
 	</FormGroup>
 
