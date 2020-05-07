@@ -25,7 +25,6 @@
 	let maxInterurban = "";
 	let minUrban = "";
 	let maxUrban = "";
-	let errorMsg = "";
 	
 	onMount(getStats);
 
@@ -66,7 +65,7 @@
 		if(typeof maxUrban=='undefined'){
 			maxUrban="";
 		}
-		const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban)
+		const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
 		if (res.ok){
 			const json = await res.json();
 			stats = json;
@@ -139,7 +138,7 @@
 
 	async function getStatsAntiguo(){
 		console.log("Fetching stats...");
-		const res = await fetch("/api/v1/not-hospitalized-stats");
+		const res = await fetch("/api/v1/not-hospitalized-stats?offset="+numeroDePagina+"&limit="+limit);
 
 		if(res.ok){
 			console.log("Ok:");
@@ -147,8 +146,6 @@
 			stats = json;
 			console.log("Received "+stats.length+" stats.");
 		}else{
-			window.alert("No se encuentra ningún dato.");
-			errorMsg =" El tipo de error es: " + res.status + ", y quiere decir: " + res.statusText;
 			console.log("ERROR!");
 		}
 	}
@@ -161,9 +158,8 @@
 				getStatsAntiguo();
 				window.alert("Datos iniciales cargados.");
 			}else if(res.status==401){
-				window.alert("La base de datos no está vacía. Debe vaciarla para cargar los datos iniciales");
+				window.alert("La base de datos no esta vacia. Debe vaciarla para cargar los datos iniciales");
 			}else{
-				errorMsg = " El tipo de error es: " + res.status + ", y quiere decir: " + res.statusText;
 				console.log("ERROR!");
 			}
             
@@ -173,8 +169,8 @@
 	}
 	async function insertStat(){
 		console.log("Inserting stat...");
-		if (newStat.province == "" || newStat.province == null || newStat.year == "" || newStat.year == null) {
-			window.alert("Pon una provincia y un año");
+		if (newStat.province == "" || newStat.province == null || newStat.year == "" || newStat.year == null || newStat.total == "" || newStat.total == null || newStat.interurban == "" || newStat.interurban == null || newStat.urban == "" || newStat.urban == null) {
+			window.alert("No se puede dejar ningún campo vacío");
 		}else{
 			const res = await fetch("/api/v1/not-hospitalized-stats",{
 				method: "POST",
@@ -192,7 +188,6 @@
 				}else{
 					window.alert("Dato ya creado. No puede insertarlo.");
 				}
-				errorMsg = " El tipo de error es: " + res.status + ", y quiere decir: " + res.statusText;
 				console.log("ERROR!");
 			});
 		}
@@ -207,14 +202,18 @@
 		});
 	}
 	async function deleteStats(){
-		console.log("Deleting stat...");
-		const res = await fetch("/api/v1/not-hospitalized-stats",{
-			method: "DELETE"
-		}).then(function (res){
-			window.alert("Base de datos eliminada correctamente.");			
-			getStatsAntiguo();
-			location.reload();
-		});
+		if(stats.length>=1){
+			console.log("Deleting stat...");
+			const res = await fetch("/api/v1/not-hospitalized-stats",{
+				method: "DELETE"
+			}).then(function (res){
+				window.alert("Base de datos eliminada correctamente.");			
+				getStatsAntiguo();
+				location.reload();
+			});
+		}else {
+			window.alert("La base de datos ya esta vacia. Cargue los datos iniciales.");			
+		};
 	}
 </script>
 
@@ -258,9 +257,6 @@
 			</tbody>
 		</Table>
 	{/await}
-	{#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
 	<Button outline color="secondary" on:click="{loadInitialData}">Cargar datos iniciales</Button>
 	<Button outline color="danger" on:click="{deleteStats}">Borrar todos</Button>
 	{#if numeroDePagina==0}
@@ -270,20 +266,19 @@
 		<Button outline color="primary" on:click="{paginacion(searchProvince, searchYear, minTotal, maxTotal, minInterurban, maxInterurban, minUrban, maxUrban, 1)}">Pagina anterior</Button>
 		<Button outline color="primary" on:click="{paginacion(searchProvince, searchYear, minTotal, maxTotal, minInterurban, maxInterurban, minUrban, maxUrban, 2)}">Pagina siguiente</Button>
 	{/if}
-	<h6>Para verlo mediante páginas pulse el botón de avanzar página. </h6>
 	<tr>
 		<td><label>Pais: <input bind:value="{searchProvince}"></label></td>
-		<td><label>Mínimo número de totales: <input bind:value="{minTotal}"></label></td>
-		<td><label>Mínimo número en vías interurbanas: <input bind:value="{minInterurban}"></label></td>
-		<td><label>Mínimo número en vías urbanas: <input bind:value="{minUrban}"></label></td>
+		<td><label>Minimo numero de totales: <input bind:value="{minTotal}"></label></td>
+		<td><label>Minimo numero en vias interurbanas: <input bind:value="{minInterurban}"></label></td>
+		<td><label>Minimo numero en vias urbanas: <input bind:value="{minUrban}"></label></td>
 	</tr>
 	<tr>
 		<td><label>Año: <input bind:value="{searchYear}"></label></td>
-		<td><label>Máximo número de totales: <input bind:value="{maxTotal}"></label></td>
-		<td><label>Máximo número en vías interurbanas: <input bind:value="{maxInterurban}"></label></td>
-		<td><label>Máximo número en vías urbanas: <input bind:value="{maxUrban}"></label></td>
+		<td><label>Maximo numero de totales: <input bind:value="{maxTotal}"></label></td>
+		<td><label>Maximo numero en vias interurbanas: <input bind:value="{maxInterurban}"></label></td>
+		<td><label>Maximo numero en vias urbanas: <input bind:value="{maxUrban}"></label></td>
 	</tr>
 
 	<Button outline color="primary" on:click="{busqueda (searchProvince, searchYear, minTotal, maxTotal, minInterurban, maxInterurban, minUrban, maxUrban)}">Buscar</Button>
-	<h6>Si quiere ver todos los datos después de una búsqueda, quite todo los filtros y pulse el botón de buscar. </h6>
+	<h6>Si quiere ver todos los datos despues de una busqueda, quite todo los filtros y pulse el boton de buscar. </h6>
 </main>
