@@ -38,7 +38,7 @@
         <br>
         <li>
             <span style="font-family:Courier New, courier;">
-                <strong>Repository:</strong> 
+                <strong>Repository GitHub:</strong> 
                     <a href="https://github.com/gti-sos/SOS1920-06">gti-sos/SOS1920-06</a>
             </span>
         </li>
