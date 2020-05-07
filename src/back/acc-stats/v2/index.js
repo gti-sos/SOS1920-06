@@ -26,7 +26,7 @@ var initialAccstats = [
 	},
 	
 	{ 
-		province: "Cádiz",
+		province: "Cadiz",
 		year: 2017,
 		accvictotal: 4207,
 		accvicinter: 1186,
@@ -34,7 +34,7 @@ var initialAccstats = [
 	},
 
 	{ 
-		province: "Jaén",
+		province: "Jaen",
 		year: 2017,
 		accvictotal: 1386,
 		accvicinter: 635,
@@ -42,7 +42,7 @@ var initialAccstats = [
 	},
 
 	{ 
-		province: "Almería",
+		province: "Almeria",
 		year: 2016,
 		accvictotal: 1175,
 		accvicinter: 935,
@@ -114,7 +114,7 @@ var initialAccstats = [
 	},
 
 	{ 
-		province: "Castellón",
+		province: "Castellon",
 		year: 2018,
 		accvictotal: 885,
 		accvicinter: 491,
@@ -162,7 +162,7 @@ var initialAccstats = [
 	},
 
 	{ 
-		province: "Málaga",
+		province: "Malaga",
 		year: 2016,
 		accvictotal: 2215,
 		accvicinter: 862,
