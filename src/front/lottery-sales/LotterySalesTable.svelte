@@ -395,6 +395,14 @@
 
 <main>
 
+
+	<ul style="list-style-type:circle">GRÁFICAS
+		<li><a href="#/lottery-sales/graph">Grafico lineal</a></li>
+		<li><a href="#/lottery-sales/graph2">Grafica Highchart (Wheel)</a></li>
+	  </ul>
+	
+	
+
 	
 	{#await sales}
 		Loading sales...
@@ -488,5 +496,9 @@
 	</ul>
 	</div>
 	<Button outline color="danger" on:click={deleteAll}>Borrar todos los datos</Button>	
+
+	
+		
+	
 
 </main>
