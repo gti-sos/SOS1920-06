@@ -1,0 +1,2702 @@
+{
+	"info": {
+		"_postman_id": "57ef82ca-660b-4fe9-b97e-278875269768",
+		"name": "sos1920-06-lottery-sales-Travis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3629a084-458d-490f-8d57-4592a6f8b172",
+						"exec": [
+							"pm.test(\"Initial data created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 10 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/loadInitialData",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadInitialData duplicated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7e23402-addc-491a-a5b2-2ef7803f87e0",
+						"exec": [
+							"pm.test(\"Initial data already created\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/loadInitialData",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f45b6754-b529-41d1-afa4-ed835e459fdc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Madrid&year=2014",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "year",
+							"value": "2014"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "339303a1-d3b1-4463-872c-7d579cf77911",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Barcelona&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Barcelona"
+						},
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "40000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a569210-fa05-483d-885b-5a9ae5d41c99",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Madrid&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromtotal",
+							"value": "200000000"
+						},
+						{
+							"key": "tototal",
+							"value": "600000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a13234a-663b-4a14-b3df-86fef9b62dd3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Barcelona&fromtotal=250000000&tototal=400000000&fromkid=12000000&tokid=53000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Barcelona"
+						},
+						{
+							"key": "fromtotal",
+							"value": "250000000"
+						},
+						{
+							"key": "tototal",
+							"value": "400000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "12000000"
+						},
+						{
+							"key": "tokid",
+							"value": "53000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4108e616-5cd3-417f-9667-47b022fe12c0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Valencia&fromtotal=750000000&tototal=804000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Valencia"
+						},
+						{
+							"key": "fromtotal",
+							"value": "750000000"
+						},
+						{
+							"key": "tototal",
+							"value": "804000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb4b7d1a-1cf8-4f3b-bb9e-7a9e822e5637",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Madrid&fromxmas=1&toxmas=200000000&fromkid=1&tokid=25000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromxmas",
+							"value": "1"
+						},
+						{
+							"key": "toxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "1"
+						},
+						{
+							"key": "tokid",
+							"value": "25000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "407677f7-32fe-4e10-9773-eeaf8261d1a2",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Madrid&fromkid=200000000&tokid=400000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromkid",
+							"value": "200000000"
+						},
+						{
+							"key": "tokid",
+							"value": "400000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET P",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f4cc992-d243-4ad2-a06d-3f85e066468e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 4 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?province=Madrid",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c751d1f0-67e5-4a99-97a3-a67d4bc6487c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2016&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "40000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fec4ee8c-0c27-462d-8108-d80c530600aa",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2017&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromtotal",
+							"value": "200000000"
+						},
+						{
+							"key": "tototal",
+							"value": "600000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab96c0b4-c6dd-4b93-aa2c-508eb2d5f093",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2016&fromtotal=1&tototal=200000000&fromkid=1&tokid=50000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "1"
+						},
+						{
+							"key": "tototal",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "1"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19dd806d-4ac8-4f3c-a8e1-2e79410cba93",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2016&fromtotal=1&tototal=500000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "1"
+						},
+						{
+							"key": "tototal",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7ced006-7bd9-4d1b-b5a5-98bb1eacd7d3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2017&fromxmas=200000000&toxmas=400000000&fromkid=60000000&tokid=90000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "400000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "60000000"
+						},
+						{
+							"key": "tokid",
+							"value": "90000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4897ea7e-dfe0-4baa-a4a7-39926b9ef78f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2017&fromxmas=400000000&toxmas=500000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromxmas",
+							"value": "400000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b320e852-1234-4256-863a-4219da6fecbd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2015&fromkid=10000000&tokid=60000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "fromkid",
+							"value": "10000000"
+						},
+						{
+							"key": "tokid",
+							"value": "60000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Y",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b229cad1-08d1-4b6e-9663-dd9c2ee64407",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?year=2017",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0809deff-7f54-4ffe-a699-529d7508542e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromtotal=32000000&tototal=700000000&fromxmas=60000000&toxmas=250000000&fromkid=5000000&tokid=81000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "700000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "60000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "250000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "5000000"
+						},
+						{
+							"key": "tokid",
+							"value": "81000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9eac3ee9-677f-4910-9769-01088bab1769",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromtotal=400000000&tototal=800000000&fromxmas=200000000&toxmas=450000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "400000000"
+						},
+						{
+							"key": "tototal",
+							"value": "800000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "450000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3eab91d8-da0f-48a2-b0c2-f3ab24479acf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromtotal=50000000&tototal=300000000&fromkid=4000000&tokid=18000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "50000000"
+						},
+						{
+							"key": "tototal",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "18000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET T",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "89315360-b485-4482-9c47-e53d78b7163b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromtotal=260000000&tototal=490000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "260000000"
+						},
+						{
+							"key": "tototal",
+							"value": "490000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET XK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "31813ed5-62b6-4d8b-b2f6-608efbd7de97",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromxmas=17000000&toxmas=200000000&fromkid=20000000&tokid=50000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "20000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET X",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8fc1656e-d0b7-4a3b-a112-d1836b606ce4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromxmas=300000000&toxmas=500000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET K",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ce249c4-1864-49fb-aaed-feb48e6929e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?fromkid=60000000&tokid=100000000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromkid",
+							"value": "60000000"
+						},
+						{
+							"key": "tokid",
+							"value": "100000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 3 primeros elementos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bbd5e8a-bacf-4c1a-8a60-a21177368fb1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?limit=3&offset=0",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 2 elementos intermedios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e53b7ba5-36a2-47de-93d1-17b53de15de2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?limit=2&offset=4",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 3 elementos ultimos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dfc71da7-676a-465e-9c5b-3376b032dbe2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales?limit=3&offset=7",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion body vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f08b9938-06a4-45cd-94bc-5f176ae2dce4",
+						"exec": [
+							"pm.test(\"Must enter the object to create\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion campos incorrectos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e728bb1d-63e2-407f-b255-d8b6c5d2e2b5",
+						"exec": [
+							"pm.test(\"Does not have the expected fields\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"provin\": \"Leon\",\r\n\"year\": \"2016\",\r\n\"total\": \"67775712\",\r\n\"xmas\": \"35883580\",\r\n\"kid\": \"10604720\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion valores null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df899da2-2c96-478b-bc20-ad672de08794",
+						"exec": [
+							"pm.test(\"Values cannot be null\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": null,\r\n\"year\": \"2016\",\r\n\"total\": \"67775712\",\r\n\"xmas\": \"35883580\",\r\n\"kid\": \"10604720\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fff669c5-bb74-439f-afc8-56bfbd507988",
+						"exec": [
+							"pm.test(\"Sale created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 9,\r\n\"xmas\": 9,\r\n\"kid\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion duplicado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0adbe6d3-d434-42d0-a738-e37d8c55418c",
+						"exec": [
+							"pm.test(\"This sale already exist\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 67775712,\r\n\"xmas\": 35883580,\r\n\"kid\": 10604720\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3f7dc3b5-8707-4c74-912e-9f16ac8afe53",
+						"exec": [
+							"pm.test(\"There are 1 sale\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('province');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso data not match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a48cb8a9-cbf4-47c4-8f15-26caebf19cb8",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": \"2015\",\r\n\"total\": \"1\",\r\n\"xmas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso not expected fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52d61517-facb-4580-9f87-aa31b7a6eac8",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"ye\": \"2015\",\r\n\"total\": \"1\",\r\n\"mas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso values null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b011ba9b-ef8a-4818-9479-8822f40efe12",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": null,\r\n\"year\": \"2015\",\r\n\"total\": \"1\",\r\n\"xmas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44da7949-345b-41af-8da8-18692f911038",
+						"exec": [
+							"pm.test(\"Sale updated\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 10,\r\n\"xmas\": 20,\r\n\"kid\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "507eff76-e87d-4f4f-9c9f-27f2040203c5",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": \"2030\",\r\n\"total\": \"4\",\r\n\"xmas\": \"3\",\r\n\"kid\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2030",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2030"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0daed1e9-7ed7-43c3-ba59-cca250b1d591",
+						"exec": [
+							"pm.test(\"There are 1 sale\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('province');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64bb5642-b619-49e8-a6b8-928a574516f1",
+						"exec": [
+							"pm.test(\"Sale deleted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6103c5e-18f9-4921-b774-8f6553c9d555",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso already deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a6fa406-8e62-4eb5-916b-2a09a7e1020c",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Sevilla/2020",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f58c5a05-d548-4385-9599-5c53a2a46d18",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 10 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "234a7b1d-0ecb-43dc-8f18-52ef3efefd79",
+						"exec": [
+							"pm.test(\"Method not allowed\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": \"2016\",\r\n\"total\": \"444\",\r\n\"xmas\": \"555\",\r\n\"kid\": \"666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales/Madrid/2016",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales",
+						"Madrid",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1df6ca60-717c-4ff1-86a4-7f6f3d4f034b",
+						"exec": [
+							"pm.test(\"Method not allowed\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": \"2016\",\r\n\"total\": \"444\",\r\n\"xmas\": \"555\",\r\n\"kid\": \"666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bfead404-0532-4d0e-85d3-985ac6ee2137",
+						"exec": [
+							"pm.test(\"All data deleted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE coleccion empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fb241cb-2e2e-419b-a4f0-9e30ab0b3b28",
+						"exec": [
+							"pm.test(\"Database was already empty\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91496c78-384c-49f0-b0ad-89d062ddee7d",
+						"exec": [
+							"pm.test(\"No data stored\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/lottery-sales",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "daa1a541-616d-48d8-b50b-a31474a81ebc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "af9a7062-4260-45bf-bbf5-d95c7f3c511c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

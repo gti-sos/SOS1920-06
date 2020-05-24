@@ -107,6 +107,20 @@
                     </li>
                 </ul>
         </li>
+        <br>
+        <br>
+        <li>
+            <span style="font-family: Courier New, courier;">
+                <strong>ANALYTICS:</strong>
+            </span>
+                <ul style="list-style-type:circle;">
+                    <li>
+                        <span style="font-family:Courier New, courier;">
+                            <a href="#/analytics">Team graphic</a>
+                        </span>
+                    </li>
+                </ul>
+        </li>
     </ul>  
     
     

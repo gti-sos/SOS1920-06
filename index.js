@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 
 var app = express();
-var port = process.env.PORT || 80; //Se pone la variable y si no, pues toma el valor 80, el puerto 80 vaya.
+var port = process.env.PORT || 4444; //Se pone la variable y si no, pues toma el valor 80, el puerto 80 vaya.
 
 app.use(bodyParser.json());
 app.use("/", express.static("./public"));

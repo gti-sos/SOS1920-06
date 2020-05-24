@@ -397,9 +397,9 @@
 
 
 	<ul style="list-style-type:circle">GRÁFICAS
-		<li><a href="#/lottery-sales/graph">Grafico lineal</a></li>
-		<li><a href="#/lottery-sales/graph2">Grafica Highchart (Wheel)</a></li>
-	  </ul>
+		<li><a href="#/lottery-sales/graphWheel">Highchart</a></li>
+		<li><a href="#/lottery-sales/graphAwesome">Awesome charting</a></li>
+	</ul>
 	
 	
 
