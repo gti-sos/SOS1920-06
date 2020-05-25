@@ -393,17 +393,7 @@
 
 </script>
 
-<main>
-
-
-	<ul style="list-style-type:circle">GRÁFICAS
-		<li><a href="#/lottery-sales/graphWheel">Highchart</a></li>
-		<li><a href="#/lottery-sales/graphAwesome">Awesome charting</a></li>
-	</ul>
-	
-	
-
-	
+<main>	
 	{#await sales}
 		Loading sales...
 	{:then sales}

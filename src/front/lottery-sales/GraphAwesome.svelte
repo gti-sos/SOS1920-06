@@ -131,10 +131,6 @@
 
 </svelte:head>
 <main>
-    
-    <h1>
-        Apexchart 
-    </h1>
     <div id="chartAwesome"></div>
     <Button outline color="secondary" on:click="{pop}">Atrás</Button>
 
