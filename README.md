@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/gti-sos/SOS1920-06.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-06)
 # REPOSITORIO GRUPO 6
 
 ## SOS1920-06
