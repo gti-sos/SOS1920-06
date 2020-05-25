@@ -84,7 +84,7 @@ async function loadGraph(){
 </svelte:head>
 
 <main>
-    <h1>INTEGRACION GRUPO 9</h1>
+    <h1>INTEGRACION GRUPO 9 </h1>
     <figure class="highcharts-figure">
         <div id="container"></div>
     </figure>
