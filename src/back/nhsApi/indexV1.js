@@ -115,10 +115,6 @@ module.exports = function (app) {
 			urban: 119	
 		}
 	];
-
-	db.remove({}, { multi: true });
-	db.insert(initialStats);
-
 	// GET a datos iniciales /not-hospitalized-stats/loadInitialData
 	app.get(BASE_API_URL+"/not-hospitalized-stats/loadInitialData", (req,res)=>{
 		console.log("New GET .../loadInitialData");
