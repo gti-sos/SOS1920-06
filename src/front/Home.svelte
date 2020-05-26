@@ -81,6 +81,12 @@
                             <a href="https://github.com/adriperezguti">Adrían Pérez Gutiérrez</a>)
                         </span>
                     </li>
+                    <li>
+                        <span style="font-family:Courier New, courier;">
+                            <a href="https://sos1920-06.herokuapp.com/api/v2/lottery-sales">https://sos1920-06.herokuapp.com/api/v2/lottery-sales</a> (developed by 
+                            <a href="https://github.com/adriperezguti">Adrían Pérez Gutiérrez</a>)
+                        </span>
+                    </li>
                 </ul>
         </li>
         <br>

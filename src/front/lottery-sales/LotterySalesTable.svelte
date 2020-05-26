@@ -44,7 +44,7 @@
 	async function insertSale() {
 		if(newSale.province!="" && newSale.year!=0){
 			//Campo provincia no vacio y year no 0 (error no tratado en back)
-			const res = await fetch("/api/v1/lottery-sales", {
+			const res = await fetch("/api/v2/lottery-sales", {
 				method: "POST",
 				body: JSON.stringify(newSale),
 				headers: {"Content-Type": "application/json"
@@ -78,7 +78,7 @@
 
 	//BORRAR RECURSO
 	async function deleteSale(province,year) {
-		const res = await fetch("/api/v1/lottery-sales/" + province + "/" + year, {
+		const res = await fetch("/api/v2/lottery-sales/" + province + "/" + year, {
 			method: "DELETE"
 		}).then(function (res) {
 			search();
@@ -94,7 +94,7 @@
 	async function deleteAll(){
 		if(sales.length>=1){
 			//Si hay mas de un dato, se hace delete
-			const res = await fetch("api/v1/lottery-sales" , {
+			const res = await fetch("api/v2/lottery-sales" , {
 			method: "DELETE"
 		}).then(function (res) {
 			search();
@@ -118,7 +118,7 @@
 
 	//CARGAR DATOS INICIALES
 	async function loadInitialData(){
-		const res = await fetch("api/v1/lottery-sales/loadInitialData");
+		const res = await fetch("api/v2/lottery-sales/loadInitialData");
 		if(res.status==400){
 			//Si da 400, es que ya hay datos y mostramos error
 			Swal.fire({
@@ -191,7 +191,7 @@
 		console.log("Searching lottery sales...");
 		//Partimos de la ruta base.
 		//En caso de entrar en las busquedas, se ira concatenando los parametros y valores a la url
-		var url = "/api/v1/lottery-sales";
+		var url = "/api/v2/lottery-sales";
 
 		if(haybusqueda()){
 			//Si hay busquedas, entramos aqui
@@ -325,9 +325,9 @@
 			//No hay busquedas, luego tenemos que devolver todos los recursos que haya (paginados)
 
 			//all:todos los recursos
-			const all = await fetch("/api/v1/lottery-sales");
+			const all = await fetch("/api/v2/lottery-sales");
 			//res: recursos de una pagina concreta
-			const res = await fetch("/api/v1/lottery-sales?offset="+ offset +  "&limit=" + limit);
+			const res = await fetch("/api/v2/lottery-sales?offset="+ offset +  "&limit=" + limit);
 
 			if (res.ok) {
 				//Todo OK, devolvemos la pagina indicada por offset y limit

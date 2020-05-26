@@ -9,7 +9,7 @@
         var salesTotal = [];
         var salesXmas = [];
         var salesKid = [];
-        const all = await fetch("/api/v1/lottery-sales");
+        const all = await fetch("/api/v2/lottery-sales");
         const json  =await all.json();
         for (var i in json) {
             if(json[i]["province"]=="Madrid"){

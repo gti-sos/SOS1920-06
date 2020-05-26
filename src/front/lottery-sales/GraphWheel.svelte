@@ -14,7 +14,7 @@ async function loadGraph(){
     */
 
     //fetch a todos los recursos
-    const all = await fetch("/api/v1/lottery-sales");
+    const all = await fetch("/api/v2/lottery-sales");
     const json  =await all.json();
     //Iteramos los datos del json devuelto
     for (var i in json) {

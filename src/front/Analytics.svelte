@@ -7,7 +7,7 @@
         var nhs = [];
         var accs = [];
 
-        const dataAdri = await fetch("/api/v1/lottery-sales");
+        const dataAdri = await fetch("/api/v2/lottery-sales");
         const jsonAdri  =await dataAdri.json();
 
         const dataAlvaro = await fetch("/api/v1/not-hospitalized-stats");

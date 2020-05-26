@@ -5,7 +5,7 @@ async function loadGraph(){
     var sales = [];
     var stats = [];
 
-    const dataAdri = await fetch("/api/v1/lottery-sales");
+    const dataAdri = await fetch("/api/v2/lottery-sales");
     const jsonAdri  =await dataAdri.json();
 
     for (var i in jsonAdri) {
