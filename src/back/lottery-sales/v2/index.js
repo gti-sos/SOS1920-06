@@ -11,8 +11,73 @@ module.exports = function(app,BASE_PATH){
             autoload: true
         }
     );
+
+    var sales = [
+        {"province" : "Madrid",
+         "year" : 2014,
+         "total" : 730521147,
+         "xmas" : 417308840,
+         "kid" : 86507800},
+
+        {"province" : "Madrid",
+         "year" : 2015,
+         "total" : 75257689,
+         "xmas" : 36017220,
+         "kid" : 9462560},
+
+        {"province" : "Madrid",
+         "year" : 2016,
+         "total" : 67775712,
+         "xmas" : 35883580,
+         "kid" : 10604720},
+
+        {"province" : "Madrid",
+         "year" : 2017,
+         "total" : 487375563,
+         "xmas" : 258886720,
+         "kid" : 62538100},
+
+        {"province" : "Barcelona",
+         "year" : 2016,
+         "total" : 32939883,
+         "xmas" : 17450480,
+         "kid" : 4320280},
+
+        {"province" : "Barcelona",
+         "year" : 2017,
+         "total" : 48928673,
+         "xmas" : 27397980,
+         "kid" : 6577720},
+
+        {"province" : "Barcelona",
+         "year" : 2014,
+         "total" : 110488505,
+         "xmas" : 64734400,
+         "kid" : 14060360},
+
+        {"province" : "Valencia",
+         "year" : 2016,
+         "total" : 38849889,
+         "xmas" : 21415900,
+         "kid" : 6027160},
+
+        {"province" : "Barcelona",
+         "year" : 2015,
+         "total" : 330575503,
+         "xmas" : 158246960,
+         "kid" : 48486140},
+
+        {"province" : "Valencia",
+         "year" : 2017,
+         "total" : 802036655,
+         "xmas" : 468028440,
+         "kid" : 99264960}
+    ];
+
+    db.remove({}, { multi: true }); // Deleting elements one by one
+	db.insert(sales);
     
-    //var sales = [];
+   
 
     // GET LOADINITIALDATA
     app.get(BASE_PATH + "/lottery-sales/loadInitialData", (req,res) => {

@@ -39,7 +39,6 @@
 	let toKid=0;
 
 	onMount(search);
-	onMount(loadInitialData);
 
 	// INSERTAR DATO
 	async function insertSale() {
