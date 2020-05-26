@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "8ed7a3f0-6055-4106-944a-3287821c1ddb",
 		"name": "sos1920-06-lottery-sales V2",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "http://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -34,9 +34,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -84,9 +84,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -130,9 +130,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -176,9 +176,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Madrid&year=2014",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&year=2014",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -231,9 +231,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -306,9 +306,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Madrid&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -373,9 +373,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=250000000&tototal=400000000&fromkid=12000000&tokid=53000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=250000000&tototal=400000000&fromkid=12000000&tokid=53000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -440,9 +440,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Valencia&fromtotal=750000000&tototal=804000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Valencia&fromtotal=750000000&tototal=804000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -499,9 +499,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Madrid&fromxmas=1&toxmas=200000000&fromkid=1&tokid=25000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromxmas=1&toxmas=200000000&fromkid=1&tokid=25000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -566,9 +566,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Madrid&fromkid=200000000&tokid=400000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromkid=200000000&tokid=400000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -630,9 +630,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?province=Madrid",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -682,9 +682,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -758,9 +758,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2017&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -826,9 +826,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=200000000&fromkid=1&tokid=50000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=200000000&fromkid=1&tokid=50000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -894,9 +894,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=500000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=500000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -954,9 +954,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=200000000&toxmas=400000000&fromkid=60000000&tokid=90000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=200000000&toxmas=400000000&fromkid=60000000&tokid=90000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1022,9 +1022,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=400000000&toxmas=500000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=400000000&toxmas=500000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1082,9 +1082,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2015&fromkid=10000000&tokid=60000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2015&fromkid=10000000&tokid=60000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1146,9 +1146,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?year=2017",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1197,9 +1197,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromtotal=32000000&tototal=700000000&fromxmas=60000000&toxmas=250000000&fromkid=5000000&tokid=81000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=32000000&tototal=700000000&fromxmas=60000000&toxmas=250000000&fromkid=5000000&tokid=81000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1273,9 +1273,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromtotal=400000000&tototal=800000000&fromxmas=200000000&toxmas=450000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=400000000&tototal=800000000&fromxmas=200000000&toxmas=450000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1336,9 +1336,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromtotal=50000000&tototal=300000000&fromkid=4000000&tokid=18000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=50000000&tototal=300000000&fromkid=4000000&tokid=18000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1404,9 +1404,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromtotal=260000000&tototal=490000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=260000000&tototal=490000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1460,9 +1460,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromxmas=17000000&toxmas=200000000&fromkid=20000000&tokid=50000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromxmas=17000000&toxmas=200000000&fromkid=20000000&tokid=50000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1528,9 +1528,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromxmas=300000000&toxmas=500000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromxmas=300000000&toxmas=500000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1588,9 +1588,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?fromkid=60000000&tokid=100000000",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromkid=60000000&tokid=100000000",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1648,9 +1648,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?limit=3&offset=0",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=3&offset=0",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1708,9 +1708,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?limit=2&offset=4",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=2&offset=4",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1768,9 +1768,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales?limit=3&offset=7",
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=3&offset=7",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1820,9 +1820,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1862,9 +1862,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1904,9 +1904,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1946,9 +1946,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -1988,9 +1988,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2034,9 +2034,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2078,9 +2078,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2122,9 +2122,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2166,9 +2166,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2210,9 +2210,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2254,9 +2254,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2030",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2030",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2302,9 +2302,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2346,9 +2346,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2390,9 +2390,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2437,9 +2437,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2489,9 +2489,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2531,9 +2531,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/Madrid/2016",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Madrid/2016",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2575,9 +2575,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2617,9 +2617,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2659,9 +2659,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2704,9 +2704,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales",
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
@@ -2754,9 +2754,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
 					"host": [
-						"https://localhost:1111"
+						"http://localhost:1111"
 					],
 					"path": [
 						"api",
