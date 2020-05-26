@@ -1,0 +1,2015 @@
+{
+	"info": {
+		"_postman_id": "371c3a68-1cad-4ce9-96c2-d83b70b06f60",
+		"name": "SOS1920-06-acp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET a la ruta base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET a una provincia concreta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Badajoz",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Badajoz"
+					]
+				},
+				"description": "GET a una provincia concreta (p.e. “/towns”) devuelve una lista con todos los recursos."
+			},
+			"response": []
+		},
+		{
+			"name": "GET a una provincia concreta, provincia no encontrada, error 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Merida",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Merida"
+					]
+				},
+				"description": "GET a una provincia concreta (p.e. “/towns”) no devuelve nada y da el código de error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "POST a la ruta base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 1,\r\n\"interurban\": 2,\r\n\"urban\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "POST a la ruta base (p.e. “/towns”) crea un nuevo recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "POST a la ruta base, campo mal, error 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"total\": 1,\r\n\"interurban\": 2,\r\n\"urban\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "POST a la ruta base (p.e. “/towns”) no crea nada y da el código de error 400."
+			},
+			"response": []
+		},
+		{
+			"name": "POST a la ruta base, recurso ya existente, error 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 1,\r\n\"interurban\": 0,\r\n\"urban\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "POST a la ruta base (p.e. “/towns”) no crea nada y da el código de error 409."
+			},
+			"response": []
+		},
+		{
+			"name": "POST a una provincia, método no permitido, error 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 1,\r\n\"interurban\": 2,\r\n\"urban\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde"
+					]
+				},
+				"description": "POST a una provincia (p.e. “/towns/seville”) debe dar un error de método no permitido."
+			},
+			"response": []
+		},
+		{
+			"name": "POST a un recurso, método no permitido, error 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 1,\r\n\"interurban\": 2,\r\n\"urban\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde/2015",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde",
+						"2015"
+					]
+				},
+				"description": "POST a un recurso (p.e. “/towns/seville”) debe dar un error de método no permitido."
+			},
+			"response": []
+		},
+		{
+			"name": "GET a un recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d18ed7cd-0b4f-404e-af50-c4d260b0a592",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"It has property province\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"province\");",
+							"});",
+							"",
+							"pm.test(\"It has property year\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"year\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde/2015",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde",
+						"2015"
+					]
+				},
+				"description": "GET a un recurso (p.e. “/towns/seville”) devuelve ese recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "GET a un recurso , recurso no encontrado, error 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d18ed7cd-0b4f-404e-af50-c4d260b0a592",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde/2016",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde",
+						"2016"
+					]
+				},
+				"description": "GET a un recurso (p.e. “/towns/seville”) no devuelve nada y da el código de error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "GET provincia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?province=Cuenca",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Cuenca"
+						}
+					]
+				},
+				"description": "GET buscando provincia (p.e. “/towns?province=Seville”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET provincia con año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 0 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?province=Cuenca&year=2001",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Cuenca"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				},
+				"description": "GET buscando provincia con año (p.e. “/towns?province=Seville&year=2005”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?year=2014",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2014"
+						}
+					]
+				},
+				"description": "GET buscando año (p.e. “/towns?year=2005”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET año con provincia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 0 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?year=2014&province=Tarragona",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2014"
+						},
+						{
+							"key": "province",
+							"value": "Tarragona"
+						}
+					]
+				},
+				"description": "GET buscando año con provincia (p.e. “/towns?year=2005&province=Seville”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET total heridos no hospitalizados entre rango",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMaxim=1000&totalMinim=500",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMaxim",
+							"value": "1000"
+						},
+						{
+							"key": "totalMinim",
+							"value": "500"
+						}
+					]
+				},
+				"description": "GET buscando total heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET total heridos no hospitalizados entre rango cambiado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMinim=500&totalMaxim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMinim",
+							"value": "500"
+						},
+						{
+							"key": "totalMaxim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando total heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET  total heridos no hospitalizados entre rango cambiado NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMaxim=500&totalMinim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMaxim",
+							"value": "500"
+						},
+						{
+							"key": "totalMinim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando total heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET interurban heridos no hospitalizados entre rango",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?interurbanMaxim=1000&interurbanMinim=500",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "interurbanMaxim",
+							"value": "1000"
+						},
+						{
+							"key": "interurbanMinim",
+							"value": "500"
+						}
+					]
+				},
+				"description": "GET buscando interurban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET interurban heridos no hospitalizados entre rango cambiado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?interurbanMinim=500&interurbanMaxim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "interurbanMinim",
+							"value": "500"
+						},
+						{
+							"key": "interurbanMaxim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando interurban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET  interurban heridos no hospitalizados entre rango cambiado NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?interurbanMaxim=500&interurbanMinim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "interurbanMaxim",
+							"value": "500"
+						},
+						{
+							"key": "interurbanMinim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando interurban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET urban heridos no hospitalizados entre rango",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?urbanMaxim=1000&urbanMinim=500",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "urbanMaxim",
+							"value": "1000"
+						},
+						{
+							"key": "urbanMinim",
+							"value": "500"
+						}
+					]
+				},
+				"description": "GET buscando urban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET urban heridos no hospitalizados entre rango cambiado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?urbanMinim=500&urbanMaxim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "urbanMinim",
+							"value": "500"
+						},
+						{
+							"key": "urbanMaxim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando urban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET  urban heridos no hospitalizados entre rango cambiado NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?urbanMaxim=500&urbanMinim=1000",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "urbanMaxim",
+							"value": "500"
+						},
+						{
+							"key": "urbanMinim",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "GET buscando urban heridos no hospitalizados entre rango (p.e. “/towns?totalMaxim=1000&totalMinim=1”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET mezclando todas las búsquedas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 0 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMaxim=150&interurbanMaxim=129&urbanMaxim=22&urbanMinim=20&interurbanMinim=127&province=Soria&totalMinim=148&year=2014",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMaxim",
+							"value": "150"
+						},
+						{
+							"key": "interurbanMaxim",
+							"value": "129"
+						},
+						{
+							"key": "urbanMaxim",
+							"value": "22"
+						},
+						{
+							"key": "urbanMinim",
+							"value": "20"
+						},
+						{
+							"key": "interurbanMinim",
+							"value": "127"
+						},
+						{
+							"key": "province",
+							"value": "Soria"
+						},
+						{
+							"key": "totalMinim",
+							"value": "148"
+						},
+						{
+							"key": "year",
+							"value": "2014"
+						}
+					]
+				},
+				"description": "GET buscando un recurso en concreto dentro de una colección (p.e. “/towns?province=Seville”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginación muestra sólo 1 elemento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 0 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?limit=1",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginación muestra 3 elementos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?limit=3",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginación muestra 3 elementos desde el segundo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?limit=3&offset=1",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginación muestra 3 elementos desde el segundo cambiados los parámetros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?offset=1&limit=3",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginación muestra desde el segundo elemento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 1 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?offset=1",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				},
+				"description": "GET a la ruta base (p.e. “/towns”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET mezclando todas las búsquedas y la paginación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 0 data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMaxim=150&interurbanMaxim=129&urbanMaxim=22&urbanMinim=20&interurbanMinim=127&province=Soria&totalMinim=148&year=2014&offset=0&limit=1",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMaxim",
+							"value": "150"
+						},
+						{
+							"key": "interurbanMaxim",
+							"value": "129"
+						},
+						{
+							"key": "urbanMaxim",
+							"value": "22"
+						},
+						{
+							"key": "urbanMinim",
+							"value": "20"
+						},
+						{
+							"key": "interurbanMinim",
+							"value": "127"
+						},
+						{
+							"key": "province",
+							"value": "Soria"
+						},
+						{
+							"key": "totalMinim",
+							"value": "148"
+						},
+						{
+							"key": "year",
+							"value": "2014"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				},
+				"description": "GET buscando un recurso en concreto dentro de una colección (p.e. “/towns?province=Seville”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET mezclando todas las búsquedas y la paginación  NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats?totalMaxim=150&interurbanMaxim=129&urbanMaxim=22&urbanMinim=20&interurbanMinim=127&province=Soria&totalMinim=148&year=2015&offset=0&limit=1",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					],
+					"query": [
+						{
+							"key": "totalMaxim",
+							"value": "150"
+						},
+						{
+							"key": "interurbanMaxim",
+							"value": "129"
+						},
+						{
+							"key": "urbanMaxim",
+							"value": "22"
+						},
+						{
+							"key": "urbanMinim",
+							"value": "20"
+						},
+						{
+							"key": "interurbanMinim",
+							"value": "127"
+						},
+						{
+							"key": "province",
+							"value": "Soria"
+						},
+						{
+							"key": "totalMinim",
+							"value": "148"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				},
+				"description": "GET buscando un recurso en concreto dentro de una colección (p.e. “/towns?province=Seville”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a un recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04765086-9515-4beb-a4c5-c64f09592344",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": 2014,\r\n\"total\": 0,\r\n\"interurban\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Madrid/2014",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Madrid",
+						"2014"
+					]
+				},
+				"description": "PUT a un recurso (p.e. “/towns/seville”) actualiza ese recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a un recurso, campo mal, error 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": 2014,\r\n\"total\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Madrid/2014",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Madrid",
+						"2014"
+					]
+				},
+				"description": "PUT a un recurso (p.e. “/towns/Seville”) no modifica nada y da el código de error 400."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a un recurso, recurso no encontrado, error 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04765086-9515-4beb-a4c5-c64f09592344",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Badajoz\",\r\n\"year\": 1999,\r\n\"total\": 0,\r\n\"interurban\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Badajoz/1999",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Badajoz",
+						"1999"
+					]
+				},
+				"description": "PUT a un recurso (p.e. “/towns/seville”) no actualiza ningún recurso y da error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a un recurso, año o provincia cambiados, error 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04765086-9515-4beb-a4c5-c64f09592344",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Cuenca\",\r\n\"year\": 2000,\r\n\"total\": 0,\r\n\"interurban\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Cuenca/2001",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Cuenca",
+						"2001"
+					]
+				},
+				"description": "PUT a un recurso (p.e. “/towns/seville”) no actualiza ningún recurso y da error 409."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a una provincia, método no permitido, error 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 0,\r\n\"interurban\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Madrid",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Madrid"
+					]
+				},
+				"description": "PUT a una provincia (p.e. “/towns”) debe dar un error de método no permitido."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT a la ruta base, método no permitido, error 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ba6a5ec-e6a9-4300-aa59-7bb520b0c798",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Valverde\",\r\n\"year\": 2015,\r\n\"total\": 0,\r\n\"interurban\": 0,\r\n\"urban\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "PUT a la ruta base (p.e. “/towns”) debe dar un error de método no permitido."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a un recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62531685-51a2-40b2-98f9-5f92d046292e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde/2015",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde",
+						"2015"
+					]
+				},
+				"description": "DELETE a un recurso (p.e. “/towns/seville”) borra ese recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a un recurso, recurso no encontrado, error 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62531685-51a2-40b2-98f9-5f92d046292e",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Valverde/2015",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Valverde",
+						"2015"
+					]
+				},
+				"description": "DELETE a un recurso (p.e. “/towns/seville”) no borra ese recurso y da error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a provincia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62531685-51a2-40b2-98f9-5f92d046292e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Burgos",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Burgos"
+					]
+				},
+				"description": "DELETE a una provincia (p.e. “/towns/seville”) borra esos recursos."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a provincia, provincia no encontrada, error 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62531685-51a2-40b2-98f9-5f92d046292e",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/Burgos",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"Burgos"
+					]
+				},
+				"description": "DELETE a una provincia (p.e. “/towns/seville”) no borra nada y da el error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a la ruta base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62531685-51a2-40b2-98f9-5f92d046292e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats"
+					]
+				},
+				"description": "DELETE a la ruta base (p.e. “/towns”) borra todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET al loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/loadInitialData",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "GET al loadInitialData que al hacer un GET cree 2 o más recursos (p.e. “/towns/loadInitialData”) devuelve una lista con todos los recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET al loadInitialData, base de datos no vacia, error 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1b301a6-e2e8-4ab2-9f6a-45dca8532e14",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats/loadInitialData",
+					"host": [
+						"https://sos1920-06.herokuapp.com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"not-hospitalized-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "GET al loadInitialData que al hacer un GET cree 2 o más recursos (p.e. “/towns/loadInitialData”) no devuelve nada porque la base de datos no esta vacía, y da el error 401."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
