@@ -29,6 +29,17 @@ module.exports = function(app,BASE_PATH){
 		req.pipe(request(url)).pipe(res);
     });
     ///////////////////////////////////////////////////////
+
+    //PROXY NOTAS CORTE////////////////////////////////////
+    var apiNotas = 'https://zaguan.unizar.es';
+    var pathNotas = '/record/87664/files/JSON.json';
+    
+    app.use(pathNotas, function(req, res) {
+		var url = apiNotas + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+    ///////////////////////////////////////////////////////
     
     const db = new dataStore(
         {    filename: dbFileName,

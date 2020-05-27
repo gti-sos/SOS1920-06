@@ -13,6 +13,8 @@
 	import GraphRenewable from './lottery-sales/integrations/GraphRenewable.svelte';
 	import GraphVehicles from './lottery-sales/integrations/GraphVehicles.svelte';
 	import GraphDriving from './lottery-sales/integrations/GraphDriving.svelte';
+	import GraphCovid from './lottery-sales/integrations/GraphCovid.svelte';
+	import GraphNotas from './lottery-sales/integrations/GraphNotas.svelte';
 
     import Accstats from './acc-stats/App.svelte';
 	import EditAccstat from './acc-stats/EditAccstat.svelte';
@@ -34,6 +36,8 @@
 		"/lottery-sales/graphRenewable":GraphRenewable,
 		"/lottery-sales/graphVehicles":GraphVehicles,
 		"/lottery-sales/graphDriving":GraphDriving,
+		"/lottery-sales/graphCovid":GraphCovid,
+		"/lottery-sales/graphNotas":GraphNotas,
         "/accstats": Accstats,
 		"/accstat/:province/:year" : EditAccstat, 
         "/not-hospitalized-stats": NotHospitalizedStats,

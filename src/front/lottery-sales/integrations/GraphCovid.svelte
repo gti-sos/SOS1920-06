@@ -13,12 +13,8 @@ var allLines = [];
 const all = await fetch("/api/v2/lottery-sales");
 const json  =await all.json();
 
-const all1 = await fetch("/api/v2/driving-licenses");
-const json1  =await all1.json();
-
-const covid= await fetch('https://covidtracking.com/api/v1/states/current.json');
-const c1 = await covid.json();
-console.log(c1);
+const all1= await fetch('https://covidtracking.com/api/v1/states/current.json');
+const json1 = await all1.json();
 
 //Iteramos los datos del json devuelto
 for (var i in json) {
@@ -34,16 +30,16 @@ for (var i in json) {
   for (var i in json1) {
     var line1 = [];
     //Creamos un array por elemento del json de la forma [Madrid,2017,4959]
-    line1.push(json1.map(function(d) { return d["aut_com"]})[i]);
-    line1.push(json1.map(function(d) { return d["year"]})[i]);
-    line1.push(json1.map(function(d) { return d["cars_men"]})[i]);
+    line1.push(json1.map(function(d) { return d["state"]})[i]);
+    line1.push("2020");
+    line1.push(json1.map(function(d) { return d["negative"]})[i]);
     //Añadimos la linea al array de todas
     allLines.push(line1);     
   }
 
 Highcharts.chart('container', {
     title: {
-        text: 'Ventas totales de loteria y permisos B hombres'
+        text: 'Ventas totales de loteria y negativos en covid en EE.UU.'
     },
     accessibility: {
         point: {
@@ -87,7 +83,7 @@ Highcharts.chart('container', {
 <figure class="highcharts-figure">
 <div id="container"></div>
 <p class="highcharts-description">
-    Gráfica rueda de ventas totales de loteria y permisos B hombres 
+    Gráfica rueda de ventas totales de loteria y covid EE.UU.
 </p>
 </figure>
 <Button outline color="secondary" on:click="{pop}">Atrás</Button>
