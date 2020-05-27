@@ -61,7 +61,7 @@
                 height: '80%'
             },
             title: {
-                text: 'Grafica de grupo'
+                text: 'Ventas del niño, accidentes totales y victimas totales en España 2014.'
             },
             tooltip: {
                 useHTML: true,
@@ -120,10 +120,6 @@
 
 
 <main>
-    
-    <h1>
-         ¡ Aquí va la gráfica grupal !
-    </h1>
     <figure class="highcharts-figure">
         <div id="container"></div>
     </figure>
