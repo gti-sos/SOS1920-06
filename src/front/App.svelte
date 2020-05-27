@@ -9,8 +9,10 @@
 	import EditLotterySales from './lottery-sales/EditLotterySales.svelte';
 	import GraphWheel from './lottery-sales/GraphWheel.svelte';
 	import GraphAwesome from './lottery-sales/GraphAwesome.svelte';
-	import GraphEmigrant from './lottery-sales/GraphEmigrant.svelte';
-	import GraphRenewable from './lottery-sales/GraphRenewable.svelte';
+	import GraphEmigrant from './lottery-sales/integrations/GraphEmigrant.svelte';
+	import GraphRenewable from './lottery-sales/integrations/GraphRenewable.svelte';
+	import GraphVehicles from './lottery-sales/integrations/GraphVehicles.svelte';
+	import GraphDriving from './lottery-sales/integrations/GraphDriving.svelte';
 
     import Accstats from './acc-stats/App.svelte';
 	import EditAccstat from './acc-stats/EditAccstat.svelte';
@@ -30,6 +32,8 @@
 		"/lottery-sales/graphAwesome":GraphAwesome,
 		"/lottery-sales/graphEmigrant":GraphEmigrant,
 		"/lottery-sales/graphRenewable":GraphRenewable,
+		"/lottery-sales/graphVehicles":GraphVehicles,
+		"/lottery-sales/graphDriving":GraphDriving,
         "/accstats": Accstats,
 		"/accstat/:province/:year" : EditAccstat, 
         "/not-hospitalized-stats": NotHospitalizedStats,

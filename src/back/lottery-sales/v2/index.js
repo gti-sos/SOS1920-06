@@ -5,6 +5,30 @@ module.exports = function(app,BASE_PATH){
     const path = require("path");
 
     const dbFileName = path.join(__dirname ,"sales.db");
+
+    //PROXY API GRUPO 1////////////////////////////////////
+    const request = require('request');
+    const express = require('express');
+    var apiEmigrant = 'https://sos1920-01.herokuapp.com';
+    var pathEmigrant = '/api/v2/emigrants-stats';
+    
+    app.use(pathEmigrant, function(req, res) {
+		var url = apiEmigrant + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+    ///////////////////////////////////////////////////////
+
+    //PROXY API GRUPO 21////////////////////////////////////
+    var apiDriving = 'https://sos1920-21.herokuapp.com';
+    var pathDriving = '/api/v2/driving-licenses';
+    
+    app.use(pathDriving, function(req, res) {
+		var url = apiDriving + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+    ///////////////////////////////////////////////////////
     
     const db = new dataStore(
         {    filename: dbFileName,
