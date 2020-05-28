@@ -45,7 +45,7 @@ async function loadGraph(){
     },
     yAxis: {
         title: {
-            text: 'Billions'
+            text: 'Número de accidentes'
         },
         labels: {
             formatter: function () {
