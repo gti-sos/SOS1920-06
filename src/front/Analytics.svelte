@@ -10,7 +10,7 @@
         const dataAdri = await fetch("/api/v2/lottery-sales");
         const jsonAdri  =await dataAdri.json();
 
-        const dataAlvaro = await fetch("/api/v1/not-hospitalized-stats");
+        const dataAlvaro = await fetch("/api/v2/not-hospitalized-stats");
         const jsonAlvaro  =await dataAlvaro.json();
 
         const dataLeandro = await fetch("/api/v2/accstats");

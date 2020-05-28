@@ -2,6 +2,8 @@ node_modules
 src/back/lottery-sales/v1sales.db
 src/back/lottery-sales/v2/sales.db
 src/back/nhsApi/not-hospitalized-stats.db
+src/back/nhsApi/v1/not-hospitalized-stats.db
+src/back/nhsApi/v2/not-hospitalized-stats.db
 src/back/acc-stats/v1/accstats.db
 src/back/acc-stats/v2/accstats.db
 /public/build/
