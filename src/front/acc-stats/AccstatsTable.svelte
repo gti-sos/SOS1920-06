@@ -201,8 +201,9 @@
 
 	<h6 style="margin-left: 1%">📈 Gráficas 📈</h6>
 	<ul>
-		<li><a href="#/accstats/GraphAcc1">📋 Grafica lineal (Laboratorios)</a></li>
-		<li><a href="#/accstats/GraphAcc2">📊 Grafica Highchart</a></li>
+		<li><a href="#/accstats/GraphAcc1">📋 Gráfica lineal (Laboratorios)</a></li>
+		<li><a href="#/accstats/GraphAcc2">📊 Gráfica Highchart</a></li>
+		<li><a href="#/accstats/GraphAcc3">💬 Gráfica AwesomeChart</a></li>
 	 </ul>
 	<div id="SvelteApp"></div>
 
