@@ -1,0 +1,1778 @@
+{
+	"info": {
+		"_postman_id": "70b1b291-366d-445a-aaa8-c5dc58c8e9c1",
+		"name": "SOS1920-06-accstats C2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "URL (Sin paginación)",
+			"item": [
+				{
+					"name": "URL LOAD INITIAL DATA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3350ca31-39c0-4946-83e2-102c0ffad60b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/loadInitialData",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"loadInitialData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "URL GET Accstats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c396b885-429d-420d-9d19-117f7c8dfed4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"There are more than 1 province\", function() {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "GET to base route (ex \"/ towns\") returns a list with all resources"
+					},
+					"response": []
+				},
+				{
+					"name": "URL POST Accstats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8c6cedde-db6c-4174-9359-47beb6a44d37",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2015,\r\n\"accvictotal\": 3461,\r\n\"accvicinter\": 1515,\r\n\"accfall\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "POST to base route (ex \"/ towns\") creates a new resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL get  concreteAccstats/Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bbba7d25-ee41-43a3-b8a2-ddc09efa5765",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"It return a province\", function() {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"province\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias"
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL get  concreteAccstats/Asturias/2015",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3118c7f0-efb6-4a91-9a53-3ce9e884d267",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"It return a province\", function() {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"province\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2015",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2015"
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL DELETE concreteAccstats/Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "daca77d0-3424-4988-bfb2-a3cd27082342",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								""
+							]
+						},
+						"description": "DELETE a resource (eg \"/ towns / seville\") delete that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL DELETE concreteAccstats/Asturias/2015",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c5431ef0-266e-4133-b11c-d1f31a9a6722",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2015",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2015"
+							]
+						},
+						"description": "DELETE a resource (eg \"/ towns / seville\") delete that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL PUT concreteAccStats/Asturias/2016",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6dd7f3d7-c3f6-470c-8f08-efea33cff27c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2015,\r\n\"accvictotal\": 0,\r\n\"accvicinter\": 0,\r\n\"accfall\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2015",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2015"
+							]
+						},
+						"description": "PUT to a resource (ex “/ towns / seville”) updates that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL POST concreteAccstats/Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "df1474c8-6f4b-437c-aa8d-81bcbc99352c",
+								"exec": [
+									"pm.test(\"Status code is 405\", function() {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2015,\r\n\"accvictotal\": 3461,\r\n\"accvicinter\": 1515,\r\n\"accfall\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias"
+							]
+						},
+						"description": "POST to a resource (ex “/ towns / seville”) should give an illegal method error."
+					},
+					"response": []
+				},
+				{
+					"name": "URL PUT concreteAccstats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "476f15ec-0df2-4d08-ba41-f65e21bdd0a0",
+								"exec": [
+									"pm.test(\"Status code is 405\", function() {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Bilbao\",\r\n\"year\": 2018,\r\n\"accvictotal\": 6515,\r\n\"accvicinter\": 1945,\r\n\"accfall\": 58\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								""
+							]
+						},
+						"description": "PUT to a resource (ex “/ towns / seville”) updates that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL DELETE ALL Accstats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8767cebc-17b0-4356-90c8-ccc0af2a48d6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "URL POST concreteAccstats/Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "640d8e32-f9fd-4433-bcb3-c75fce963192",
+								"exec": [
+									"pm.test(\"Status code is 405\", function() {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2015,\r\n\"accvictotal\": 3461,\r\n\"accvicinter\": 1515,\r\n\"accfall\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2015",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2015"
+							]
+						},
+						"description": "POST to a resource (ex “/ towns / seville”) should give an illegal method error."
+					},
+					"response": []
+				}
+			],
+			"description": "These test were done before when I use NEDB and NOT testing the pagination ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "82e6b92c-0536-4ab8-943e-12ae055e2bb4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1155a621-44a5-4fe6-bdcd-b892aa513986",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "QUERY FINAL (Con paginación)",
+			"item": [
+				{
+					"name": "LOAD INITIAL DATA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da01980d-4114-4001-948a-ec0a76eb9c56",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/loadInitialData",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"loadInitialData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5833dee6-d94e-4d63-be28-50ea820b37b9",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2018,\r\n\"accvictotal\": 2068,\r\n\"accvicinter\": 937,\r\n\"accfall\": 43\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "POST to base route (ex \"/ towns\") creates a new resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> All Provinces",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9aecd04d-baa4-4323-ad63-fd7bc005a7b5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?province=",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "province",
+									"value": ""
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Provinces (LIMIT)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c226367f-58a4-4a51-b0a6-b509fe75bbec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?limit=2",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Provinces (OFFSET)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c21b0002-22f9-4d82-8a9e-113e45ba2a41",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?offset=3",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "3"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Provinces LIMIT & OFFSET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "86536f86-206b-49e4-83d4-e538325b3733",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?limit=2&offset=1",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> All Years",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e01dc3cc-3bf8-4834-875b-1fecddc7cdb0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?year=",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": ""
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Province Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a694dece-fee6-4617-9a35-dfea62a3973a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?province=Asturias",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "province",
+									"value": "Asturias"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Years 2018",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "512c2afe-f080-4998-b3d8-f72b820b8ac2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?year=2018",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2018"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET -> Province & Year Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81f4cf3a-da4b-4540-ad7e-3c2fe4a25510",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?province=Asturias&year=2018",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "province",
+									"value": "Asturias"
+								},
+								{
+									"key": "year",
+									"value": "2018"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accvitotal Max 5000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e16a03b-123f-47fe-8acb-62a83e579dc6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvictotalMax=5000",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvictotalMax",
+									"value": "5000"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accvitotal Min 10000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a87d0c82-e8f2-426a-9279-3e1f750ae313",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvictotalMin=10000",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvictotalMin",
+									"value": "10000"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accvitotal Min/Max",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9e76da3-5e3a-4048-9c0a-551f1840c00f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvitotalMin=0&accvitotalMax=6000",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvitotalMin",
+									"value": "0"
+								},
+								{
+									"key": "accvitotalMax",
+									"value": "6000"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AccvicinterMax 1500",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ec74c04-d887-45ec-b2a5-f1bd44963625",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvicinterMax=1500",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvicinterMax",
+									"value": "1500"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET AccvicinterMin 1500",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4414bc3b-aeea-4387-aee7-93ffab6e405a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvicinterMin=1500",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvicinterMin",
+									"value": "1500"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accvitotal Min/Max Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aed8ed74-b15b-4a6a-9962-7bca823a4ef1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accvicinterMin=0&accvicinterMax=50000",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accvicinterMin",
+									"value": "0"
+								},
+								{
+									"key": "accvicinterMax",
+									"value": "50000"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accfall Max 34",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51d6e021-3304-44e2-b0ea-ae9d077f46cb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accfallMax=34",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accfallMax",
+									"value": "34"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accfall Min 50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c9b5344-0816-4343-bce3-a5ff7c7a02ab",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accfallMin=50",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accfallMin",
+									"value": "50"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Accfall Min 50 Max 120",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e3ff5d38-6ed0-4e68-b94e-243112bc1674",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats?accfallMax=120&accfallMin=50",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							],
+							"query": [
+								{
+									"key": "accfallMax",
+									"value": "120"
+								},
+								{
+									"key": "accfallMin",
+									"value": "50"
+								}
+							]
+						},
+						"description": "GET to a resource (ex \"/ towns / seville\") returns that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ->  Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a7bd15f-12a3-462e-998a-e54bca4945b6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias"
+							]
+						},
+						"description": "DELETE a resource (eg \"/ towns / seville\") delete that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ->  Asturias/2018",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5eaa29e4-c2a5-4426-8e9e-aafec7966430",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2018",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2018"
+							]
+						},
+						"description": "DELETE a resource (eg \"/ towns / seville\") delete that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL PUT concreteAccStats/Asturias/2016 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "779439b4-cfaa-4275-9bd4-d77693b2745d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2018,\r\n\"accvictotal\": 0,\r\n\"accvicinter\": 0,\r\n\"accfall\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/Asturias/2018",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								"Asturias",
+								"2018"
+							]
+						},
+						"description": "PUT to a resource (ex “/ towns / seville”) updates that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a6708d13-5012-4b22-9e64-e51d8f111eb2",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2018,\r\n\"accvictotal\": 2068,\r\n\"accvicinter\": 937,\r\n\"accfall\": 43\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "POST to base route (ex \"/ towns\") creates a new resource"
+					},
+					"response": []
+				},
+				{
+					"name": "URL PUT concreteAccstats Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff1bb385-a517-4af6-a261-9755652c9ce3",
+								"exec": [
+									"pm.test(\"Status code is 405\", function() {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2018,\r\n\"accvictotal\": 0,\r\n\"accvicinter\": 0,\r\n\"accfall\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats/",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats",
+								""
+							]
+						},
+						"description": "PUT to a resource (ex “/ towns / seville”) updates that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ->  All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8e57d881-43d2-45fe-9639-ce27cccc2dc9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "DELETE a resource (eg \"/ towns / seville\") delete that resource"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Asturias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5129c7bb-c08f-479f-8d16-822f7743d366",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"province\": \"Asturias\",\r\n\"year\": 2018,\r\n\"accvictotal\": 2068,\r\n\"accvicinter\": 937,\r\n\"accfall\": 43\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1111/api/v2/accstats",
+							"host": [
+								"http://localhost:1111"
+							],
+							"path": [
+								"api",
+								"v2",
+								"accstats"
+							]
+						},
+						"description": "POST to base route (ex \"/ towns\") creates a new resource"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9f6ff846-6b18-453a-bca9-fc47d4531922",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "78922a80-5829-4dfa-b78e-ec026cc68c96",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e0b5c8bc-35ff-4609-af93-120f42fe6ce1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8b4423a9-7eac-446b-89f5-7a59e28e8bdf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
