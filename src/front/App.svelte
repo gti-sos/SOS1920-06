@@ -1,31 +1,58 @@
 <script>
 	import Router from 'svelte-spa-router';
 
+	import Analytics from './Analytics.svelte';
+	import Integrations from './Integrations.svelte';
+
 	import Home from './Home.svelte';
 	import LotterySales from './lottery-sales/App.svelte';
 	import EditLotterySales from './lottery-sales/EditLotterySales.svelte';
-	
-	import Graph from './lottery-sales/Graph.svelte';
-	import Graph2 from './lottery-sales/Graph2.svelte';
+	import GraphWheel from './lottery-sales/GraphWheel.svelte';
+	import GraphAwesome from './lottery-sales/GraphAwesome.svelte';
+	import GraphEmigrant from './lottery-sales/integrations/GraphEmigrant.svelte';
+	import GraphRenewable from './lottery-sales/integrations/GraphRenewable.svelte';
+	import GraphVehicles from './lottery-sales/integrations/GraphVehicles.svelte';
+	import GraphDriving from './lottery-sales/integrations/GraphDriving.svelte';
+	import GraphCovid from './lottery-sales/integrations/GraphCovid.svelte';
+	import GraphNotas from './lottery-sales/integrations/GraphNotas.svelte';
 
     import Accstats from './acc-stats/App.svelte';
+<<<<<<< HEAD
     import EditAccstat from './acc-stats/EditAccstat.svelte';
     import GraphAcc1 from './acc-stats/GraphAcc1.svelte';
     import GraphAcc2 from './acc-stats/GraphAcc2.svelte';
 
 
+=======
+	import EditAccstat from './acc-stats/EditAccstat.svelte';
+	
+>>>>>>> 2e9e9a762f0e060d888562e8a26adafdd8ed4f02
     import NotHospitalizedStats from './nhsApi/App.svelte';
 	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
+	import GraphHighChart from './nhsApi/GraphHighChart.svelte';
 
 	import NotFound from './NotFound.svelte';
 
 	const routes = {
 		"/": Home,
+		"/analytics": Analytics,
+		"/integrations":Integrations,
 		"/lottery-sales": LotterySales,
 		"/lottery-sales/:province/:year": EditLotterySales,
+<<<<<<< HEAD
 		"/lottery-sales/graph":Graph,
 		"/lottery-sales/graph2":Graph2,
 
+=======
+		"/lottery-sales/graphWheel":GraphWheel,
+		"/lottery-sales/graphAwesome":GraphAwesome,
+		"/lottery-sales/graphEmigrant":GraphEmigrant,
+		"/lottery-sales/graphRenewable":GraphRenewable,
+		"/lottery-sales/graphVehicles":GraphVehicles,
+		"/lottery-sales/graphDriving":GraphDriving,
+		"/lottery-sales/graphCovid":GraphCovid,
+		"/lottery-sales/graphNotas":GraphNotas,
+>>>>>>> 2e9e9a762f0e060d888562e8a26adafdd8ed4f02
         "/accstats": Accstats,
 		"/accstat/:province/:year" : EditAccstat, 
 		"/accstats/GraphAcc1" : GraphAcc1,
@@ -33,6 +60,7 @@
 
         "/not-hospitalized-stats": NotHospitalizedStats,
 		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
+		"/not-hospitalized-stats/GraphHighChart":GraphHighChart,
 		"*": NotFound
 	};
 </script>

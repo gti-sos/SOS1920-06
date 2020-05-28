@@ -1,0 +1,2773 @@
+{
+	"info": {
+		"_postman_id": "8ed7a3f0-6055-4106-944a-3287821c1ddb",
+		"name": "sos1920-06-lottery-sales V2",
+		"schema": "http://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE coleccion Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e8ae26-5d36-4b3c-bd70-6b9ae0eaf666",
+						"exec": [
+							"pm.test(\"All data deleted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80cc919e-44ad-4806-b04f-44490d73873f",
+						"exec": [
+							"pm.test(\"Initial data created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 10 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadInitialData duplicated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc631e51-3a40-46e2-9b15-fe140ca0fa9f",
+						"exec": [
+							"pm.test(\"Initial data already created\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aaea01b1-220c-48ef-ae5c-04835da5b0d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&year=2014",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "year",
+							"value": "2014"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f1d6512-7fe8-4e31-bb42-9c560c4c0a98",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Barcelona"
+						},
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "40000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4bcc323-a8a3-4834-a210-ee0466a49f61",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromtotal",
+							"value": "200000000"
+						},
+						{
+							"key": "tototal",
+							"value": "600000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PTK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb7985d1-7ab5-41dd-b687-3464755faa91",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Barcelona&fromtotal=250000000&tototal=400000000&fromkid=12000000&tokid=53000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Barcelona"
+						},
+						{
+							"key": "fromtotal",
+							"value": "250000000"
+						},
+						{
+							"key": "tototal",
+							"value": "400000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "12000000"
+						},
+						{
+							"key": "tokid",
+							"value": "53000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d81b971-297d-41ef-bdb2-347d0ec379bb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Valencia&fromtotal=750000000&tototal=804000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Valencia"
+						},
+						{
+							"key": "fromtotal",
+							"value": "750000000"
+						},
+						{
+							"key": "tototal",
+							"value": "804000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18828ced-1854-495b-902e-402b489cd073",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromxmas=1&toxmas=200000000&fromkid=1&tokid=25000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromxmas",
+							"value": "1"
+						},
+						{
+							"key": "toxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "1"
+						},
+						{
+							"key": "tokid",
+							"value": "25000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "365fab0e-7306-405c-a2c9-cfcb83351c86",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid&fromkid=200000000&tokid=400000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						},
+						{
+							"key": "fromkid",
+							"value": "200000000"
+						},
+						{
+							"key": "tokid",
+							"value": "400000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET P",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42bb3976-4d58-470a-9705-a0f82abc8984",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 4 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?province=Madrid",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Madrid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9dca964-910f-4d40-bb32-1334fded0560",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=32000000&tototal=40000000&fromxmas=17000000&toxmas=300000000&fromkid=4000000&tokid=50000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "40000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "94b68c34-8f1e-4955-87f8-66c3c9a57d53",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromtotal=200000000&tototal=600000000&fromxmas=200000000&toxmas=300000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromtotal",
+							"value": "200000000"
+						},
+						{
+							"key": "tototal",
+							"value": "600000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "300000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YTK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f35f8f9f-85af-42c7-b042-80881288fb12",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=200000000&fromkid=1&tokid=50000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "1"
+						},
+						{
+							"key": "tototal",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "1"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b390b54-5d92-4d85-8b6f-79b820cc4cee",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2016&fromtotal=1&tototal=500000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "fromtotal",
+							"value": "1"
+						},
+						{
+							"key": "tototal",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed54cd25-3d41-4a27-a0e0-74d24ec764b4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=200000000&toxmas=400000000&fromkid=60000000&tokid=90000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "400000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "60000000"
+						},
+						{
+							"key": "tokid",
+							"value": "90000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12d588b2-a189-45e9-9667-f6a7de098ab2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017&fromxmas=400000000&toxmas=500000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "fromxmas",
+							"value": "400000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET YK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "820c4504-cb98-4500-a267-5ddc97c93a34",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2015&fromkid=10000000&tokid=60000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "fromkid",
+							"value": "10000000"
+						},
+						{
+							"key": "tokid",
+							"value": "60000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Y",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7856b345-a4e6-4030-9d38-35547e139ec1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?year=2017",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TXK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68a812f2-e548-46f5-8457-5ae508bfec94",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=32000000&tototal=700000000&fromxmas=60000000&toxmas=250000000&fromkid=5000000&tokid=81000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "32000000"
+						},
+						{
+							"key": "tototal",
+							"value": "700000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "60000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "250000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "5000000"
+						},
+						{
+							"key": "tokid",
+							"value": "81000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05e9ebb9-e3d8-48b5-abe2-261fd9d60e85",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=400000000&tototal=800000000&fromxmas=200000000&toxmas=450000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "400000000"
+						},
+						{
+							"key": "tototal",
+							"value": "800000000"
+						},
+						{
+							"key": "fromxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "450000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdb37e81-47f2-43ea-8607-170caf0e85d9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=50000000&tototal=300000000&fromkid=4000000&tokid=18000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "50000000"
+						},
+						{
+							"key": "tototal",
+							"value": "300000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "4000000"
+						},
+						{
+							"key": "tokid",
+							"value": "18000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET T",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "610b7db6-1d43-4aab-98e3-4a11f9ff424c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromtotal=260000000&tototal=490000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromtotal",
+							"value": "260000000"
+						},
+						{
+							"key": "tototal",
+							"value": "490000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET XK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "026cc3cc-a9dc-476b-b0b7-baa182f4e05c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromxmas=17000000&toxmas=200000000&fromkid=20000000&tokid=50000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromxmas",
+							"value": "17000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "200000000"
+						},
+						{
+							"key": "fromkid",
+							"value": "20000000"
+						},
+						{
+							"key": "tokid",
+							"value": "50000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET X",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "884a2131-c73c-4571-9f03-372bfa7f6b61",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromxmas=300000000&toxmas=500000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromxmas",
+							"value": "300000000"
+						},
+						{
+							"key": "toxmas",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET K",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "447d7d2a-ebe3-4fc7-bae9-8c3a520dfa9b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?fromkid=60000000&tokid=100000000",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "fromkid",
+							"value": "60000000"
+						},
+						{
+							"key": "tokid",
+							"value": "100000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 3 primeros elementos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7387ea59-e107-46ce-94fe-25a4a23d50d8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=3&offset=0",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 2 elementos intermedios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "598c9573-c8b0-4bd5-af26-84a4e22bc61c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 2 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=2&offset=4",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 3 elementos ultimos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "201b012d-a2b4-4064-afcc-73cf4b571100",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 3 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales?limit=3&offset=7",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion body vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be8d9635-db8d-48da-ac55-0ff28a35570b",
+						"exec": [
+							"pm.test(\"Must enter the object to create\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion campos incorrectos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62dac78c-6367-4942-9a28-f77ba87b8993",
+						"exec": [
+							"pm.test(\"Does not have the expected fields\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"provin\": \"Leon\",\r\n\"year\": \"2016\",\r\n\"total\": \"67775712\",\r\n\"xmas\": \"35883580\",\r\n\"kid\": \"10604720\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion valores null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49d99108-340e-4912-b424-1f4fde49bfae",
+						"exec": [
+							"pm.test(\"Values cannot be null\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": null,\r\n\"year\": \"2016\",\r\n\"total\": \"67775712\",\r\n\"xmas\": \"35883580\",\r\n\"kid\": \"10604720\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c38e901f-ae78-4c0f-946d-c3a25facf231",
+						"exec": [
+							"pm.test(\"Sale created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 9,\r\n\"xmas\": 9,\r\n\"kid\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST coleccion duplicado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be9abeca-284b-4121-b9fd-08eb48252b6e",
+						"exec": [
+							"pm.test(\"This sale already exist\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 67775712,\r\n\"xmas\": 35883580,\r\n\"kid\": 10604720\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f2681a6-3828-4286-90c5-d5d277b31646",
+						"exec": [
+							"pm.test(\"There are 1 sale\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('province');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso data not match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbb091c5-dbca-4d6c-ab20-9e147a5ba0a6",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": \"2015\",\r\n\"total\": \"1\",\r\n\"xmas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso not expected fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74855dab-6961-4566-8cf7-603f829fde80",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"ye\": \"2015\",\r\n\"total\": \"1\",\r\n\"mas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso values null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fa3d18f-018c-4502-b730-bacde636835b",
+						"exec": [
+							"pm.test(\"Data error\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": null,\r\n\"year\": \"2015\",\r\n\"total\": \"1\",\r\n\"xmas\": \"1\",\r\n\"kid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b58f7d5f-aa65-4c21-94f4-28de103185d0",
+						"exec": [
+							"pm.test(\"Sale updated\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": 2020,\r\n\"total\": 10,\r\n\"xmas\": 20,\r\n\"kid\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1776b6ba-241c-41c9-b195-bc121a7908a6",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Sevilla\",\r\n\"year\": \"2030\",\r\n\"total\": \"4\",\r\n\"xmas\": \"3\",\r\n\"kid\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2030",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2030"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc66e1df-de97-459b-b71e-f93a94a408f9",
+						"exec": [
+							"pm.test(\"There are 1 sale\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('province');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso Sevilla/2020",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "61bf5742-96e4-4486-ab74-a65421437793",
+						"exec": [
+							"pm.test(\"Sale deleted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09e2435f-6535-474a-b1a0-39c0c9dfaffc",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso already deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9ddb4bb-460a-48a2-be6b-0499794e884a",
+						"exec": [
+							"pm.test(\"Sale not found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Sevilla/2020",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6cec549-f991-4bb6-bf47-2dbac98fe2b2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 10 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6855e81-acde-4208-9d24-067cfdead03e",
+						"exec": [
+							"pm.test(\"Method not allowed\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": \"2016\",\r\n\"total\": \"444\",\r\n\"xmas\": \"555\",\r\n\"kid\": \"666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/Madrid/2016",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"Madrid",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "422221e9-af4c-4568-be63-e64a77722b98",
+						"exec": [
+							"pm.test(\"Method not allowed\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"province\": \"Madrid\",\r\n\"year\": \"2016\",\r\n\"total\": \"444\",\r\n\"xmas\": \"555\",\r\n\"kid\": \"666\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e74928c-bcf0-4eda-90b9-c00be315d9cb",
+						"exec": [
+							"pm.test(\"All data deleted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE coleccion empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7729000-a02b-49eb-86e1-ed719b009741",
+						"exec": [
+							"pm.test(\"Database was already empty\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET coleccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af81ac5b-0c5d-46a5-8bd7-206de14c89c9",
+						"exec": [
+							"pm.test(\"No data stored\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f26b6906-30c8-4a93-81b7-159f7ac754ff",
+						"exec": [
+							"pm.test(\"Initial data created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are 10 sales\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1111/api/v2/lottery-sales/loadInitialData",
+					"host": [
+						"http://localhost:1111"
+					],
+					"path": [
+						"api",
+						"v2",
+						"lottery-sales",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

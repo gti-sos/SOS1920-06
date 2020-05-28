@@ -25,7 +25,7 @@
     async function getSale() {
 
         console.log("Fetching sale...");
-        const res = await fetch("/api/v1/lottery-sales/" + params.province + "/" + params.year);
+        const res = await fetch("/api/v2/lottery-sales/" + params.province + "/" + params.year);
 
         if (res.ok) {
             console.log("Ok:");
@@ -46,7 +46,7 @@
 
         console.log("Updating sale...");
 
-        const res = await fetch("/api/v1/lottery-sales/" + params.province + "/" + params.year, {
+        const res = await fetch("/api/v2/lottery-sales/" + params.province + "/" + params.year, {
             method: "PUT",
             body: JSON.stringify({
                 "province": params.province,

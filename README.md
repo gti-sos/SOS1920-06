@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/gti-sos/SOS1920-06.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-06)
 # REPOSITORIO GRUPO 6
 
 ## SOS1920-06
@@ -14,6 +15,7 @@
     - V2 [https://sos1920-06.herokuapp.com/api/v2/accstats](https://sos1920-06.herokuapp.com/api/v2/accstats) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
     - [https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats](https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
     - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales](https://sos1920-06.herokuapp.com/api/v1/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
+    - [https://sos1920-06.herokuapp.com/api/v2/lottery-sales](https://sos1920-06.herokuapp.com/api/v2/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
 	
 -  **Colecciones Postman**:
     - [sos1920-06-accstats v1](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))

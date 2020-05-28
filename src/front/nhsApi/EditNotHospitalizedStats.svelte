@@ -24,7 +24,7 @@
 
 	async function getStat(){
 		console.log("Fetching stat...");
-		const res = await fetch("/api/v1/not-hospitalized-stats/"+params.province+"/"+params.year);
+		const res = await fetch("/api/v2/not-hospitalized-stats/"+params.province+"/"+params.year);
 
 		if(res.ok){
 			console.log("Ok:");
@@ -44,7 +44,7 @@
 
     async function updateStat(){
         console.log("Updating stat..."+JSON.stringify(params.province));
-		const res = await fetch("/api/v1/not-hospitalized-stats/"+params.province+"/"+params.year,{
+		const res = await fetch("/api/v2/not-hospitalized-stats/"+params.province+"/"+params.year,{
 			method: "PUT",
 			body: JSON.stringify({
                 province : params.province,

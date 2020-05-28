@@ -1,20 +1,35 @@
 <script>
+        import Button from "sveltestrap/src/Button.svelte";
+        import {
+                pop
+            } from "svelte-spa-router";
 
 async function loadGraph(){
 
+    //Lineas del grafico de ventas totales
     var allLinesTotal = [];
+    /*
     var allLinesXmas = [];
     var allLinesKid = [];
-    const all = await fetch("/api/v1/lottery-sales");
+    */
+
+    //fetch a todos los recursos
+    const all = await fetch("/api/v2/lottery-sales");
     const json  =await all.json();
+    //Iteramos los datos del json devuelto
     for (var i in json) {
         var lineTotal = [];
+        /*
         var lineXmas = [];
         var lineKid = [];
+        */
+
+        //Creamos un array por elemento del json de la forma [Madrid,2017,4959]
         lineTotal.push(json.map(function(d) { return d["province"]})[i]);
         lineTotal.push(json.map(function(d) { return d["year"]})[i]);
         lineTotal.push(json.map(function(d) { return d["total"]})[i]);
 
+        /*
         lineXmas.push(json.map(function(d) { return d["province"]})[i]);
         lineXmas.push(json.map(function(d) { return d["year"]})[i]);
         lineXmas.push(json.map(function(d) { return d["xmas"]})[i]);
@@ -22,10 +37,14 @@ async function loadGraph(){
         lineKid.push(json.map(function(d) { return d["province"]})[i]);
         lineKid.push(json.map(function(d) { return d["year"]})[i]);
         lineKid.push(json.map(function(d) { return d["kid"]})[i]);
+        */
 
-        allLinesTotal.push(lineTotal); 
+        //Añadimos la linea al array de todas
+        allLinesTotal.push(lineTotal);
+        /*
         allLinesXmas.push(lineXmas);
-        allLinesKid.push(lineKid);     
+        allLinesKid.push(lineKid);
+        */     
       }
 
 
@@ -57,7 +76,8 @@ async function loadGraph(){
         }]
 
     });
- Highcharts.chart('container2', {
+/*
+    Highcharts.chart('container2', {
 
         title: {
             text: 'Ventas de navidad de loteria'
@@ -116,7 +136,7 @@ async function loadGraph(){
         }]
 
     });
-
+*/
 }
 
     
@@ -138,7 +158,9 @@ async function loadGraph(){
         Gráfica rueda de ventas totales
     </p>
 </figure>
-<!--<figure class="highcharts-figure">
+<Button outline color="secondary" on:click="{pop}">Atrás</Button>
+<!--
+    <figure class="highcharts-figure">
     <div id="container2"></div>
     <p class="highcharts-description">
         Gráfica rueda de ventas de navidad
@@ -149,5 +171,6 @@ async function loadGraph(){
     <p class="highcharts-description">
         Gráfica rueda de ventas del niño
     </p>
-</figure>-->
+</figure>
+-->
 </main>

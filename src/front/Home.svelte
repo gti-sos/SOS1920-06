@@ -77,7 +77,19 @@
                     </li>
                     <li>
                         <span style="font-family:Courier New, courier;">
+                            <a href="https://sos1920-06.herokuapp.com/api/v2/not-hospitalized-stats">https://sos1920-06.herokuapp.com/api/v2/not-hospitalized-stats</a> (developed by 
+                            <a href="https://github.com/alvarocp16">Álvaro Chamorro Pascua</a>)
+                        </span>
+                    </li>
+                    <li>
+                        <span style="font-family:Courier New, courier;">
                             <a href="https://sos1920-06.herokuapp.com/api/v1/lottery-sales">https://sos1920-06.herokuapp.com/api/v1/lottery-sales</a> (developed by 
+                            <a href="https://github.com/adriperezguti">Adrían Pérez Gutiérrez</a>)
+                        </span>
+                    </li>
+                    <li>
+                        <span style="font-family:Courier New, courier;">
+                            <a href="https://sos1920-06.herokuapp.com/api/v2/lottery-sales">https://sos1920-06.herokuapp.com/api/v2/lottery-sales</a> (developed by 
                             <a href="https://github.com/adriperezguti">Adrían Pérez Gutiérrez</a>)
                         </span>
                     </li>
@@ -106,6 +118,19 @@
                         </span>
                     </li>
                 </ul>
+        </li>
+        <br>
+        <br>
+        <li>
+            <span style="font-family: Courier New, courier;">
+                <a href="#/analytics">ANALYTICS</a>
+            </span>
+        </li>
+
+        <li>
+            <span style="font-family: Courier New, courier;">
+                <a href="#/integrations">INTEGRATIONS</a>
+            </span>
         </li>
     </ul>  
     

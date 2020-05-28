@@ -30,7 +30,7 @@
 
 	async function getStats(){
 		console.log("Fetching stats....");
-		const res = await fetch("/api/v1/not-hospitalized-stats?offset="+numeroDePagina+"&limit="+limit);
+		const res = await fetch("/api/v2/not-hospitalized-stats?offset="+numeroDePagina+"&limit="+limit);
 		if(res.ok){
 			console.log("Ok:");
 			const json = await res.json();
@@ -65,7 +65,7 @@
 		if(typeof maxUrban=='undefined'){
 			maxUrban="";
 		}
-		const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
+		const res = await fetch("/api/v2/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
 		if (res.ok){
 			const json = await res.json();
 			stats = json;
@@ -108,7 +108,7 @@
 			numeroDePagina=numeroDePagina-limit;
 			if(numeroDePagina<0){
 				numeroDePagina=0;
-				const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
+				const res = await fetch("/api/v2/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
 				if (res.ok){
 					const json = await res.json();
 					stats = json;
@@ -116,7 +116,7 @@
 					
 				}
 			}else{
-				const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
+				const res = await fetch("/api/v2/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
 				if (res.ok){
 					const json = await res.json();
 					stats = json;
@@ -125,7 +125,7 @@
 			}
 		}else{
 			numeroDePagina = numeroDePagina+limit;
-			const res = await fetch("/api/v1/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
+			const res = await fetch("/api/v2/not-hospitalized-stats?province="+searchProvince+"&year="+searchYear+"&totalMaxim="+maxTotal+"&totalMinim="+minTotal+"&interurbanMaxim="+maxInterurban+"&interurbanMinim="+minInterurban+"&urbanMaxim="+maxUrban+"&urbanMinim="+minUrban+"&limit="+limit+"&offset="+numeroDePagina)
 			if (res.ok){
 					const json = await res.json();
 					stats = json;
@@ -138,7 +138,7 @@
 
 	async function getStatsAntiguo(){
 		console.log("Fetching stats...");
-		const res = await fetch("/api/v1/not-hospitalized-stats?offset="+numeroDePagina+"&limit="+limit);
+		const res = await fetch("/api/v2/not-hospitalized-stats?offset="+numeroDePagina+"&limit="+limit);
 
 		if(res.ok){
 			console.log("Ok:");
@@ -151,7 +151,7 @@
 	}
 	async function loadInitialData(){
 		console.log("Loading stats...");
-		const res = await fetch("/api/v1/not-hospitalized-stats/loadInitialData",{
+		const res = await fetch("/api/v2/not-hospitalized-stats/loadInitialData",{
 			method: "GET"
 		}).then(function(res){
 			if(res.ok){
@@ -172,7 +172,7 @@
 		if (newStat.province == "" || newStat.province == null || newStat.year == "" || newStat.year == null || newStat.total == "" || newStat.total == null || newStat.interurban == "" || newStat.interurban == null || newStat.urban == "" || newStat.urban == null) {
 			window.alert("No se puede dejar ningún campo vacío");
 		}else{
-			const res = await fetch("/api/v1/not-hospitalized-stats",{
+			const res = await fetch("/api/v2/not-hospitalized-stats",{
 				method: "POST",
 				body: JSON.stringify(newStat),
 				headers:{
@@ -194,7 +194,7 @@
 	}
 	async function deleteStat(province,year){
 		console.log("Deleting stat...");
-		const res = await fetch("/api/v1/not-hospitalized-stats/"+province+"/"+year,{
+		const res = await fetch("/api/v2/not-hospitalized-stats/"+province+"/"+year,{
 			method: "DELETE"
 		}).then(function (res){
 			window.alert("Dato eliminado correctamente.");
@@ -204,7 +204,7 @@
 	async function deleteStats(){
 		if(stats.length>=1){
 			console.log("Deleting stat...");
-			const res = await fetch("/api/v1/not-hospitalized-stats",{
+			const res = await fetch("/api/v2/not-hospitalized-stats",{
 				method: "DELETE"
 			}).then(function (res){
 				window.alert("Base de datos eliminada correctamente.");			
