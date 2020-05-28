@@ -198,6 +198,12 @@
 <main>
 	<h1 style="text-align: center">🚗 Accidents Stats 🚗 </h1>
 	<h6 style="text-align: center">API REST - Sistemas Orientados a Servicios</h6>
+
+	<h6 style="margin-left: 1%">📈 Gráficas 📈</h6>
+	<ul>
+		<li><a href="#/accstats/GraphAcc1">📋 Grafica lineal (Laboratorios)</a></li>
+		<li><a href="#/accstats/GraphAcc2">📊 Grafica Highchart</a></li>
+	 </ul>
 	<div id="SvelteApp"></div>
 
 	{#await accstats}
