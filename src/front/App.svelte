@@ -17,16 +17,10 @@
 	import GraphNotas from './lottery-sales/integrations/GraphNotas.svelte';
 
     import Accstats from './acc-stats/App.svelte';
-<<<<<<< HEAD
-    import EditAccstat from './acc-stats/EditAccstat.svelte';
-    import GraphAcc1 from './acc-stats/GraphAcc1.svelte';
-    import GraphAcc2 from './acc-stats/GraphAcc2.svelte';
-
-
-=======
 	import EditAccstat from './acc-stats/EditAccstat.svelte';
+	import GraphAcc1 from './acc-stats/GraphAcc1.svelte';
+    import GraphAcc2 from './acc-stats/GraphAcc2.svelte';
 	
->>>>>>> 2e9e9a762f0e060d888562e8a26adafdd8ed4f02
     import NotHospitalizedStats from './nhsApi/App.svelte';
 	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
 	import GraphHighChart from './nhsApi/GraphHighChart.svelte';
@@ -39,11 +33,6 @@
 		"/integrations":Integrations,
 		"/lottery-sales": LotterySales,
 		"/lottery-sales/:province/:year": EditLotterySales,
-<<<<<<< HEAD
-		"/lottery-sales/graph":Graph,
-		"/lottery-sales/graph2":Graph2,
-
-=======
 		"/lottery-sales/graphWheel":GraphWheel,
 		"/lottery-sales/graphAwesome":GraphAwesome,
 		"/lottery-sales/graphEmigrant":GraphEmigrant,
@@ -52,12 +41,10 @@
 		"/lottery-sales/graphDriving":GraphDriving,
 		"/lottery-sales/graphCovid":GraphCovid,
 		"/lottery-sales/graphNotas":GraphNotas,
->>>>>>> 2e9e9a762f0e060d888562e8a26adafdd8ed4f02
         "/accstats": Accstats,
-		"/accstat/:province/:year" : EditAccstat, 
+		"/accstat/:province/:year" : EditAccstat,
 		"/accstats/GraphAcc1" : GraphAcc1,
-		"/accstats/GraphAcc2" : GraphAcc2,
-
+		"/accstats/GraphAcc2" : GraphAcc2,		 
         "/not-hospitalized-stats": NotHospitalizedStats,
 		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
 		"/not-hospitalized-stats/GraphHighChart":GraphHighChart,
