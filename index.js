@@ -2,10 +2,12 @@ const cool = require("cool-ascii-faces");
 const express = require("express");
 var path = require("path");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 
 
 var app = express();
+app.use(cors());
 
 var port = process.env.PORT || 1111; //Se pone la variable y si no, pues toma el valor 80, el puerto 80 vaya.
 

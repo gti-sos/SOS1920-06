@@ -1,0 +1,20 @@
+﻿Project,Client,Title,Duration
+SOS1920-06,,"#1 Crear proyecto, milestones y labels",00:18:55
+SOS1920-06,,#10 Punto grupal 2,04:21:38
+SOS1920-06,,#11 Punto número 2 grupal,05:17:51
+SOS1920-06,,#12 loadInitialData en API,00:25:04
+SOS1920-06,,"#13 GET, POST, DELETE a colección",01:02:32
+SOS1920-06,,"#14 GET, POST, DELETE a recurso",00:37:11
+SOS1920-06,,#15 API REST - Preparar el servidor,02:17:34
+SOS1920-06,,#16 Despliegue en Heroku y parametrización,01:16:00
+SOS1920-06,,#18 Tener un conjunto de pruebas de postman de la API en una colección denominada SOS1920-XX-YYYYYY l,01:48:06
+SOS1920-06,,#19 Arreglo de servidor,04:18:00
+SOS1920-06,,#2 Clonar repositorios + invitar al excel colaborativo de propuesta a los profesores,03:15:31
+SOS1920-06,,#20 Enlaces erroneos,00:19:00
+SOS1920-06,,#21 Persistencia MongoDB,07:32:41
+SOS1920-06,,#22 Nedb,06:59:13
+SOS1920-06,,#3 1. Tener instalado Chrome,00:00:46
+SOS1920-06,,#4 Servidor web express,01:11:00
+SOS1920-06,,#8 Servidor web con NodeJS,03:22:43
+,,#2 Hacer parte 1,00:00:26
+,,,00:09:24
