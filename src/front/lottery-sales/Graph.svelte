@@ -1,5 +1,4 @@
 <script>
-
 async function loadGrapghByYear(){
     var ctg = [];
     var salesTotal = [];
@@ -52,10 +51,7 @@ async function loadGrapghByYear(){
         }]
         
         });
-
-
 }
-
 async function loadGrapghByProvince(){
     var ctg = [];
     var salesTotal = [];
@@ -108,8 +104,6 @@ async function loadGrapghByProvince(){
         }]
         
         });
-
-
 }  
     </script>
     
