@@ -17,7 +17,7 @@
         console.log(total);
         var day_data = total;
         console.log(day_data);
-        Morris.Line({
+        Morris.Area({
             element: 'myfirstchart',
             data: day_data,
             xkey: 'year',
