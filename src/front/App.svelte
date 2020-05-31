@@ -24,6 +24,7 @@
     import NotHospitalizedStats from './nhsApi/App.svelte';
 	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
 	import GraphHighChart from './nhsApi/GraphHighChart.svelte';
+	import GraphAwesomeCharting from './nhsApi/GraphAwesomeCharting.svelte';
 
 	import NotFound from './NotFound.svelte';
 
@@ -48,6 +49,7 @@
         "/not-hospitalized-stats": NotHospitalizedStats,
 		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
 		"/not-hospitalized-stats/GraphHighChart":GraphHighChart,
+		"/not-hospitalized-stats/GraphAwesomeCharting":GraphAwesomeCharting,
 		"*": NotFound
 	};
 </script>

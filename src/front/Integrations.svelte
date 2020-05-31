@@ -12,7 +12,9 @@
     <li><a href="#/lottery-sales/graphDriving">Integracion grupo 9 (driving-licenses)</a></li>
     <li><a href="#/lottery-sales/graphCovid ">Integracion librería externa COVID</a></li>
     <li><a href="#/lottery-sales/graphNotas ">Integracion librería externa Notas de corte</a></li>
-    <ul style="list-style-type:circle">INTEGRACIONES/USOS DE ALVARO
-    <li><a href="#/not-hospitalized-stats/graphHighChart">Grafico HighChart</a></li>
-	</ul>
+  </ul>
+  <ul style="list-style-type:circle">INTEGRACIONES/USOS DE ALVARO
+    <li><a href="#/not-hospitalized-stats/GraphHighChart">Grafico HighChart</a></li>
+    <li><a href="#/not-hospitalized-stats/GraphAwesomeCharting">Grafico Awesome Charting</a></li>
+  </ul>
 </main>
