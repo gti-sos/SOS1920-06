@@ -20,7 +20,8 @@
 	import EditAccstat from './acc-stats/EditAccstat.svelte';
 	import GraphAcc1 from './acc-stats/GraphAcc1.svelte';
     import GraphAcc2 from './acc-stats/GraphAcc2.svelte';
-	
+	import GraphAcc3 from './acc-stats/GraphAcc3.svelte';
+
     import NotHospitalizedStats from './nhsApi/App.svelte';
 	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
 	import GraphHighChart from './nhsApi/GraphHighChart.svelte';
@@ -45,7 +46,8 @@
         "/accstats": Accstats,
 		"/accstat/:province/:year" : EditAccstat,
 		"/accstats/GraphAcc1" : GraphAcc1,
-		"/accstats/GraphAcc2" : GraphAcc2,		 
+		"/accstats/GraphAcc2" : GraphAcc2,
+		"/accstats/GraphAcc3" : GraphAcc3,		 
         "/not-hospitalized-stats": NotHospitalizedStats,
 		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
 		"/not-hospitalized-stats/GraphHighChart":GraphHighChart,

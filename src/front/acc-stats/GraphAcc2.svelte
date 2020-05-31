@@ -45,7 +45,7 @@ async function loadGraph(){
     },
     yAxis: {
         title: {
-            text: 'Billions'
+            text: 'Número de accidentes'
         },
         labels: {
             formatter: function () {
@@ -96,7 +96,7 @@ async function loadGraph(){
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Gráfica sobre la variación por año entre accidentes en vías inteurbanas y urbanas
+            Gráfica sobre la variación por año entre accidentes en vías interurbanas y urbanas
         </p>
     </figure>
 </main>
