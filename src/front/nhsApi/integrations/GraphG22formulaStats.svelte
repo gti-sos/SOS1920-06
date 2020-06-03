@@ -4,7 +4,7 @@
         let MyData = [];
         let YourData = [];
         const resData = await fetch("/api/v2/not-hospitalized-stats?year=2015");
-        const resDataOtro = await fetch("http://sos1920-22.herokuapp.com/api/v2/formula-stats");
+        const resDataOtro = await fetch("https://sos1920-22.herokuapp.com/api/v2/formula-stats");
         MyData = await resData.json();
         YourData = await resDataOtro.json();
         for (var i in MyData) {
