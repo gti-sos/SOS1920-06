@@ -20,7 +20,6 @@
     <li><a href="#/not-hospitalized-stats/GraphG27spcStats">Integracion grupo 27: spc-stats</a></li>
     <li><a href="#/not-hospitalized-stats/GraphG22formulaStats">Integracion grupo 22: formula-stats</a></li>
     <li><a href="#/not-hospitalized-stats/GraphG23firesStats">Integracion grupo 23: fires-stats</a></li>
-    <li><a href="#/not-hospitalized-stats/GraphG09pluginVehiclesStats">Integracion grupo 9: plugin-vehicles-stats</a></li>
     <li><a href="#/not-hospitalized-stats/GraphG07imports">Integracion grupo 7: imports</a></li>
     <li><a href="#/not-hospitalized-stats/GraphG05healthPublic">Integracion grupo 5: health-public</a></li>
     <li><a href="#/not-hospitalized-stats/GraphG01povertyStats">Integracion grupo 1: poverty-stats</a></li>

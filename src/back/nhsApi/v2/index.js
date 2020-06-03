@@ -3,6 +3,31 @@ module.exports = function (app) {
 	const dataStore = require("nedb");
 	const path = require("path");
 	const dbFileName = path.join(__dirname,"not-hospitalized-stats.db");
+
+
+	//PROXY REQUERIDO
+	const request = require('request');
+	const express = require('express');
+	var apiG4 = 'https://sos1920-04.herokuapp.com';
+	var pathG4 = '/api/v1/roads';
+
+	app.use(pathG4, function(req, res) {
+		var url = apiG4 + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+	//PROXY REQUERIDO
+	var apiExt = 'https://covid-19-statistics.p.rapidapi.com';
+	var pathExt = '/provinces';
+
+	app.use(pathExt, function(req, res) {
+		var url = apiExt + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+
+
 	const db = new dataStore({
 		filename: dbFileName,
 		autoload: true

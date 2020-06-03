@@ -30,7 +30,6 @@
 	import GraphG27spcStats from './nhsApi/integrations/GraphG27spcStats.svelte';
 	import GraphG22formulaStats from './nhsApi/integrations/GraphG22formulaStats.svelte';
 	import GraphG23firesStats from './nhsApi/integrations/GraphG23firesStats.svelte';
-	import GraphG09pluginVehiclesStats from './nhsApi/integrations/GraphG09pluginVehiclesStats.svelte';
 	import GraphG07imports from './nhsApi/integrations/GraphG07imports.svelte';
 	import GraphG05healthPublic from './nhsApi/integrations/GraphG05healthPublic.svelte';
 	import GraphG01povertyStats from './nhsApi/integrations/GraphG01povertyStats.svelte';
@@ -70,7 +69,6 @@
 		"/not-hospitalized-stats/GraphG27spcStats":GraphG27spcStats,
 		"/not-hospitalized-stats/GraphG22formulaStats":GraphG22formulaStats,
 		"/not-hospitalized-stats/GraphG23firesStats":GraphG23firesStats,
-		"/not-hospitalized-stats/GraphG09pluginVehiclesStats":GraphG09pluginVehiclesStats,
 		"/not-hospitalized-stats/GraphG07imports":GraphG07imports,
 		"/not-hospitalized-stats/GraphG05healthPublic":GraphG05healthPublic,
 		"/not-hospitalized-stats/GraphG01povertyStats":GraphG01povertyStats,
