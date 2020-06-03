@@ -132,6 +132,12 @@
                 <a href="#/integrations">INTEGRATIONS</a>
             </span>
         </li>
+
+        <li>
+            <span style="font-family: Courier New, courier;">
+                <a href="#/about">ABOUT</a>
+            </span>
+        </li>
     </ul>  
     
     
