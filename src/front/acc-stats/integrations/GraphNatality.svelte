@@ -11,10 +11,18 @@ async function loadGraph(){
     var accVicinter = [];
     var accFall = [];
 
+    var ctg2 = [];
+    var natality_totals = [];
+    var natality_men = [];
+    var natality_women = [];
+
     const resData = await fetch("/api/v2/accstats");
     const json = await resData.json();
+    const yourResData = await fetch("/api/v2/natality-stats");
+    const json2 = await yourResData.json();
 
     for (var i in json) {
+        if (json[i]["year"]<2016) {
         if(ctg.includes(json[i]["year"])){
             var index = ctg.indexOf(json[i]["year"]);
             accVictotal.splice(index,1,accVictotal[index]+json[i]["accvictotal"]);
@@ -27,6 +35,23 @@ async function loadGraph(){
             accFall.push(json.map(function(d) { return d["accfall"] })[i]);
         }        
      }
+ }
+
+    for (var i in json2) {
+        if(ctg2.includes(json2[i]["year"])){
+            var index = ctg2.indexOf(json2[i]["year"]);
+            natality_totals.splice(index,1,natality_totals[index]+json2[i]["natality_totals"]);
+            natality_men.splice(index,1,natality_men[index]+json2[i]["natality_men"]);
+            natality_women.splice(index,1,natality_women[index]+json2[i]["natality_women"]);
+        }else{
+            ctg2.push(json2.map(function(d) { return d["year"]})[i]);
+            natality_totals.push(json2.map(function(d) { return d["natality_totals"] })[i]);
+            natality_men.push(json2.map(function(d) { return d["natality_men"] })[i]);
+            natality_women.push(json2.map(function(d) { return d["natality_women"] })[i]);
+        }        
+     }    
+
+
 
     Highcharts.chart('container', {
     chart: {
@@ -36,10 +61,10 @@ async function loadGraph(){
         text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas'
     },
     subtitle: {
-        text: 'Fuente: Dirección General de Tráfico (DGT)'
+        text: 'Accstats con natality stats'
     },
     xAxis: {
-        categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+        categories: ['2014', '2015', '2016'],
         tickmarkPlacement: 'on',
         title: {
             enabled: false
@@ -47,7 +72,7 @@ async function loadGraph(){
     },
     yAxis: {
         title: {
-            text: 'Número de accidentes'
+            text: 'Número de accidentes junto con los datos de la API natality-stats'
         },
         labels: {
             formatter: function () {
@@ -57,7 +82,7 @@ async function loadGraph(){
     },
     tooltip: {
         split: true,
-        valueSuffix: ' accidentes'
+        valueSuffix: ' datos'
     },
     plotOptions: {
         area: {
@@ -79,6 +104,15 @@ async function loadGraph(){
     }, {
         name: 'Accidentes con fallecidos',
         data: accFall
+    }, {
+        name: 'Natality totals',
+        data: natality_totals
+    }, {
+        name: 'Natality men',
+        data: natality_men
+    }, {
+        name: 'natality_women',
+        data: natality_women
     }]
 });
 }

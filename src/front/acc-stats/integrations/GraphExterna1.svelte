@@ -11,8 +11,15 @@ async function loadGraph(){
     var accVicinter = [];
     var accFall = [];
 
+    var ctg2 = [];
+    var id = [];
+    var city = [];
+    var state = [];
+
     const resData = await fetch("/api/v2/accstats");
     const json = await resData.json();
+    const yourData = await fetch("https://api.openbrewerydb.org/breweries");
+    const json2 = await yourData.json(); 
 
     for (var i in json) {
         if(ctg.includes(json[i]["year"])){
@@ -28,12 +35,28 @@ async function loadGraph(){
         }        
      }
 
+
+    for (var i in json2) {
+        if (json[i]["year"]<2015) {
+        if(ctg2.includes(json2[i]["city"])){
+            var index = ctg2.indexOf(json2[i]["city"]);
+            id.splice(index,1,id[index]+json2[i]["id"]);
+            state.splice(index,1,state[index]+json2[i]["state"]);
+
+        }else{
+            ctg2.push(json2.map(function(d) { return d["city"]})[i]);
+            id.push(json2.map(function(d) { return d["id"] })[i]);
+            state.push(json2.map(function(d) { return d["state"] })[i]);
+
+        }
+    }    
+}
     Highcharts.chart('container', {
     chart: {
         type: 'area'
     },
     title: {
-        text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas'
+        text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas en comparación con cervecerías'
     },
     subtitle: {
         text: 'Fuente: Dirección General de Tráfico (DGT)'
@@ -57,7 +80,7 @@ async function loadGraph(){
     },
     tooltip: {
         split: true,
-        valueSuffix: ' accidentes'
+        valueSuffix: ' datos'
     },
     plotOptions: {
         area: {
@@ -79,6 +102,9 @@ async function loadGraph(){
     }, {
         name: 'Accidentes con fallecidos',
         data: accFall
+    }, {
+        name: 'Cervecerías abiertas',
+        data: id
     }]
 });
 }
@@ -101,5 +127,7 @@ async function loadGraph(){
             Gráfica sobre la variación por año entre accidentes en vías interurbanas y urbanas
         </p>
     </figure>
+
+    
     <Button style="margin-left: 50%"color="success" on:click="{pop}">Volver atrás</Button>
 </main>

@@ -21,6 +21,11 @@
 	import GraphAcc1 from './acc-stats/GraphAcc1.svelte';
     import GraphAcc2 from './acc-stats/GraphAcc2.svelte';
 	import GraphAcc3 from './acc-stats/GraphAcc3.svelte';
+	import GraphElectricity from './acc-stats/integrations/GraphElectricity.svelte';
+	import GraphNatality from './acc-stats/integrations/GraphNatality.svelte';
+	import GraphVehicle from './acc-stats/integrations/GraphVehicle.svelte';
+	import GraphExterna1 from './acc-stats/integrations/GraphExterna1.svelte';
+	import GraphExterna2 from './acc-stats/integrations/GraphExterna2.svelte';
 
     import NotHospitalizedStats from './nhsApi/App.svelte';
 	import EditNotHospitalizedStats from './nhsApi/EditNotHospitalizedStats.svelte';
@@ -62,6 +67,11 @@
 		"/accstats/GraphAcc1" : GraphAcc1,
 		"/accstats/GraphAcc2" : GraphAcc2,
 		"/accstats/GraphAcc3" : GraphAcc3,		 
+		"/accstats/GraphElectricity" : GraphElectricity,
+		"/accstats/GraphNatality" : GraphNatality,
+		"/accstats/GraphVehicle" : GraphVehicle,
+		"/accstats/GraphExterna1" : GraphExterna1,
+		"/accstats/GraphExterna2" : GraphExterna2,
         "/not-hospitalized-stats": NotHospitalizedStats,
 		"/not-hospitalized-stats/:province/:year": EditNotHospitalizedStats,
 		"/not-hospitalized-stats/GraphHighChart":GraphHighChart,

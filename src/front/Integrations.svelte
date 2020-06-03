@@ -30,4 +30,16 @@
     <li><a href="#/not-hospitalized-stats/GraphExt1">Integracion api externa 1</a></li>
     <li><a href="#/not-hospitalized-stats/GraphExt2">Integracion api externa 2</a></li>
   </ul>
+
+    <ul style="list-style-type:circle">INTEGRACIONES/USOS DE LEANDRO
+
+    <li><a href="#/accstats/GraphAcc2">Gráfica HighChart</a></li>
+    <li><a href="#/accstats/GraphAcc3">Gráfica AwesomeChart</a></li>
+    <li><a href="#/accstats/GraphElectricity">Integración Grupo 8 (electricy-produced-stats)</a></li>
+    <li><a href="#/accstats/GraphNatality">Integración Grupo 1 (natality-stats)</a></li>
+    <li><a href="#/accstats/GraphVehicle">Integración Grupo 9 (plugin-vehicle-stats)</a></li>
+    <li><a href="#/accstats/GraphExterna1">Integración API Externa [1]</a></li>
+    <li><a href="#/accstats/GraphExterna2">Integración API Externa [2]</a></li>
+    </ul>
+
 </main>

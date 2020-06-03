@@ -11,8 +11,15 @@ async function loadGraph(){
     var accVicinter = [];
     var accFall = [];
 
+    var ctg2 = [];
+    var flight_number = [];
+    var mission_name = [];
+
+
     const resData = await fetch("/api/v2/accstats");
     const json = await resData.json();
+    const yourData = await fetch("https://api.spacexdata.com/v3/launches");
+    const json2 = await yourData.json(); 
 
     for (var i in json) {
         if(ctg.includes(json[i]["year"])){
@@ -28,12 +35,28 @@ async function loadGraph(){
         }        
      }
 
+    for (var i in json2) {
+        if (json2[i]["launch_year"]<2010) {
+	        if(ctg.includes(json2[i]["launch_year"])){
+	            var index = ctg.indexOf(json2[i]["launch_year"]);
+	            flight_number.splice(index,1,accVictotal[index]+json2[i]["flight_number"]);
+	            mission_name.splice(index,1,accVictotal[index]+json2[i]["mission_name"]);
+
+	        }else{
+	            ctg.push(json2.map(function(d) { return d["launch_year"]})[i]);
+	            flight_number.push(json2.map(function(d) { return d["flight_number"] })[i]);
+	            mission_name.splice(index,1,accVictotal[index]+json2[i]["mission_name"]);
+
+	        }        
+	     }
+	}
+
     Highcharts.chart('container', {
     chart: {
         type: 'area'
     },
     title: {
-        text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas'
+        text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas en comparación con cervecerías'
     },
     subtitle: {
         text: 'Fuente: Dirección General de Tráfico (DGT)'
@@ -47,7 +70,7 @@ async function loadGraph(){
     },
     yAxis: {
         title: {
-            text: 'Número de accidentes'
+            text: 'Número de accidentes y vuelos'
         },
         labels: {
             formatter: function () {
@@ -57,7 +80,7 @@ async function loadGraph(){
     },
     tooltip: {
         split: true,
-        valueSuffix: ' accidentes'
+        valueSuffix: ' datos'
     },
     plotOptions: {
         area: {
@@ -79,6 +102,9 @@ async function loadGraph(){
     }, {
         name: 'Accidentes con fallecidos',
         data: accFall
+    }, {
+    	name: 'Número de vuelos',
+    	data: flight_number
     }]
 });
 }
@@ -98,7 +124,7 @@ async function loadGraph(){
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Gráfica sobre la variación por año entre accidentes en vías interurbanas y urbanas
+            Gráfica sobre la variación por año entre accidentes junto con los números de vuelos realizados por la NASA
         </p>
     </figure>
     <Button style="margin-left: 50%"color="success" on:click="{pop}">Volver atrás</Button>
