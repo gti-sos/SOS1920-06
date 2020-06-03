@@ -5,7 +5,7 @@ import { pop } from "svelte-spa-router";
 
 async function loadGraph(){
 
-    
+    //..Cogiendo los datos de mi API
     var ctg = [];
     var accVictotal = [];
     var accVicinter = [];
@@ -15,6 +15,7 @@ async function loadGraph(){
     const json = await resData.json();
 
     for (var i in json) {
+        if (json[i]["year"]<2019) {
         if(ctg.includes(json[i]["year"])){
             var index = ctg.indexOf(json[i]["year"]);
             accVictotal.splice(index,1,accVictotal[index]+json[i]["accvictotal"]);
@@ -27,6 +28,34 @@ async function loadGraph(){
             accFall.push(json.map(function(d) { return d["accfall"] })[i]);
         }        
      }
+ }
+
+    //..Cogiendo los datos de su API
+    var ctg2 = [];
+    var pevStock = [];
+    var annualSale = [];
+    var carsPer1000 = [];
+    const yourResData = await fetch("/api/v3/plugin-vehicles-stats");
+    const json2 = await yourResData.json();
+
+    for (var i in json2) {
+        if (json[i]["year"]<2016) {
+        if(ctg2.includes(json2[i]["year"])){
+            var index = ctg2.indexOf(json2[i]["year"]);
+            pevStock.splice(index,1,pevStock[index]+json2[i]["pev-stock"]);
+            annualSale.splice(index,1,annualSale[index]+json2[i]["annual-sale"]);
+            carsPer1000.splice(index,1,carsPer1000[index]+json2[i]["cars-per-1000"]);
+        }else{
+            ctg2.push(json2.map(function(d) { return d["years"]})[i]);
+            pevStock.push(json2.map(function(d) { return d["pev-stock"] })[i]);
+            annualSale.push(json2.map(function(d) { return d["annual-sale"] })[i]);
+            carsPer1000.push(json2.map(function(d) { return d["cars-per-1000"] })[i]);
+        }        
+     }
+  } 
+  
+
+
 
     Highcharts.chart('container', {
     chart: {
@@ -36,10 +65,10 @@ async function loadGraph(){
         text: 'Gráfica sobre accidentes de tráficos en vías urbanas e interurbanas'
     },
     subtitle: {
-        text: 'Fuente: Dirección General de Tráfico (DGT)'
+        text: 'Gráficas entre plugin-vehicles-stats y accstats'
     },
     xAxis: {
-        categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+        categories: ['2014', '2015', '2016', '2017', '2018', '2019'],
         tickmarkPlacement: 'on',
         title: {
             enabled: false
@@ -47,7 +76,7 @@ async function loadGraph(){
     },
     yAxis: {
         title: {
-            text: 'Número de accidentes'
+            text: 'Número de accidentes junto con los datos de la API plugin-vehicles-stats'
         },
         labels: {
             formatter: function () {
@@ -57,7 +86,7 @@ async function loadGraph(){
     },
     tooltip: {
         split: true,
-        valueSuffix: ' accidentes'
+        valueSuffix: ' datos'
     },
     plotOptions: {
         area: {
@@ -79,7 +108,17 @@ async function loadGraph(){
     }, {
         name: 'Accidentes con fallecidos',
         data: accFall
+    }, {
+        name: 'PevStock',
+        data: pevStock
+    }, {
+        name: 'Annual Sale',
+        data: annualSale
+    }, {
+        name: 'Cars per 10000',
+        data: carsPer1000
     }]
+
 });
 }
 

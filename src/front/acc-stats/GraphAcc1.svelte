@@ -1,5 +1,7 @@
 <script>
 
+import Button from "sveltestrap/src/Button.svelte";
+import { pop } from "svelte-spa-router";
 
 async function loadGraph(){
 
@@ -112,4 +114,5 @@ async function loadGraph(){
 	        Gráfica sobre la variación por año entre accidentes en vías inteurbanas y urbanas
 	    </p>
 	</figure>
+    <Button style="margin-left: 50%"color="success" on:click="{pop}">Volver atrás</Button>
 </main>

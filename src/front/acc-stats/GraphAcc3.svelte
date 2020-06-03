@@ -1,6 +1,9 @@
 <!-- Gráfica de AwesomeChart (Utilizando morris.js)-->
 <script type="text/javascript">
-	
+
+import Button from "sveltestrap/src/Button.svelte";
+import { pop } from "svelte-spa-router";
+
 async function loadGraph(){
  
     var ctg = [];
@@ -34,6 +37,7 @@ async function loadGraph(){
   element: 'AwesomeChart',
   
   data: [
+  
     { label: 'accVictotal', value: accVictotalConvert },
     { label: 'accVicinter', value: accVicinterConvert },
     { label: 'accFall', value: accFallConvert }
@@ -57,7 +61,7 @@ async function loadGraph(){
 <h1 
 	style="
 		text-align: center
-
 		  "
 
 		>Esta gráfica ha sido diseñada con Morris.js</h1>
+    <Button style="margin-left: 970px"color="success" on:click="{pop}">Volver atrás</Button>

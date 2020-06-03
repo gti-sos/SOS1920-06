@@ -2,7 +2,41 @@ module.exports = function(app,BASE_PATH){
 
 	const dataStore = require("nedb");
 	const path = require("path");
-	const dbFileName = path.join(__dirname,"accstats.db"); 	
+	const dbFileName = path.join(__dirname,"accstats.db"); 
+
+	const request = require('request');
+    const express = require('express');
+
+	//PROXY API ELECTRICITY
+    var apiElectricity = 'https://sos1920-08.herokuapp.com';
+    var pathElectricity = '/api/v2/electricity-produced-stats';
+    
+    app.use(pathElectricity, function(req, res) {
+		var url = apiElectricity + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+
+	//PROXY API NATALITY
+    var apiNatality = 'http://sos1920-01.herokuapp.com';
+    var pathNatality = '/api/v2/natality-stats';
+    
+    app.use(pathNatality, function(req, res) {
+		var url = apiNatality + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+
+    //PROXY API PLUGIN-VEHICLE-STATS
+    var apiVehicle = 'http://sos1920-09.herokuapp.com';
+    var pathVehicle = '/api/v3/plugin-vehicles-stats';
+    
+    app.use(pathVehicle, function(req, res) {
+		var url = apiVehicle + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+    });
+
 	const db = new dataStore({
 					filename: dbFileName,
 					autoload: true
@@ -186,7 +220,8 @@ var initialAccstats = [
 	}
 ];
 
-
+db.remove({}, { multi: true });
+db.insert(initialAccstats);
 /**************************************************/
 // Load Initial Data . . .
 /**************************************************/
