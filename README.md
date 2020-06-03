@@ -20,6 +20,7 @@
 -  **Colecciones Postman**:
     - [sos1920-06-accstats v1](https://documenter.getpostman.com/view/10637410/SzYT4gVk) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
     - [sos1920-06-accstats v2](https://documenter.getpostman.com/view/10637410/SzmcbedW) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
-    - [sos1920-06-not-hospitalized-stats](https://documenter.getpostman.com/view/7064258/SzYUa1vw) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+    - [sos1920-06-not-hospitalized-stats v1](https://documenter.getpostman.com/view/7064258/SzYUa1vw) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+    - [sos1920-06-not-hospitalized-stats v2](https://documenter.getpostman.com/view/7064258/SztHWjrC) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
     - [sos1920-06-lottery-sales v1](https://documenter.getpostman.com/view/1805660/Szf25Vzn) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
     - [sos1920-06-lottery-sales v2](https://documenter.getpostman.com/view/1805660/SztEaSvP) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
