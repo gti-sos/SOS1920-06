@@ -3,6 +3,7 @@
 
 	import Analytics from './Analytics.svelte';
 	import Integrations from './Integrations.svelte';
+	import About from './About.svelte';
 
 	import Home from './Home.svelte';
 	import LotterySales from './lottery-sales/App.svelte';
@@ -46,6 +47,7 @@
 		"/": Home,
 		"/analytics": Analytics,
 		"/integrations":Integrations,
+		"/about":About,
 		"/lottery-sales": LotterySales,
 		"/lottery-sales/:province/:year": EditLotterySales,
 		"/lottery-sales/graphWheel":GraphWheel,
