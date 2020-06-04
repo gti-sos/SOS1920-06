@@ -14,6 +14,7 @@
     - V1: [https://sos1920-06.herokuapp.com/api/v1/accstats](https://sos1920-06.herokuapp.com/api/v1/accstats) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
     - V2 [https://sos1920-06.herokuapp.com/api/v2/accstats](https://sos1920-06.herokuapp.com/api/v2/accstats) (developed by [Leandro Calvo Durán](https://github.com/Leanxp))
     - [https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats](https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
+    - [https://sos1920-06.herokuapp.com/api/v2/not-hospitalized-stats](https://sos1920-06.herokuapp.com/api/v2/not-hospitalized-stats) (developed by [Álvaro Chamorro Pascua](https://github.com/alvarocp16))
     - [https://sos1920-06.herokuapp.com/api/v1/lottery-sales](https://sos1920-06.herokuapp.com/api/v1/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
     - [https://sos1920-06.herokuapp.com/api/v2/lottery-sales](https://sos1920-06.herokuapp.com/api/v2/lottery-sales) (developed by [Adrián Pérez Gutiérrez](https://github.com/adriperezguti))
 	
