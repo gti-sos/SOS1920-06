@@ -6,27 +6,21 @@ import { pop } from "svelte-spa-router";
 async function loadGraph(){
 
     
-    var ctg = [];
-    var accVictotal = [];
-    var accVicinter = [];
-    var accFall = [];
-
+    var total = [];
+    var MyData = [];
     const resData = await fetch("/api/v2/accstats");
-    const json = await resData.json();
+    MyData = await resData.json();
 
-    for (var i in json) {
-        if(ctg.includes(json[i]["year"])){
-            var index = ctg.indexOf(json[i]["year"]);
-            accVictotal.splice(index,1,accVictotal[index]+json[i]["accvictotal"]);
-            accVicinter.splice(index,1,accVicinter[index]+json[i]["accvicinter"]);
-            accFall.splice(index,1,accFall[index]+json[i]["accfall"]);
-        }else{
-            ctg.push(json.map(function(d) { return d["year"]})[i]);
-            accVictotal.push(json.map(function(d) { return d["accvictotal"] })[i]);
-            accVicinter.push(json.map(function(d) { return d["accvicinter"] })[i]);
-            accFall.push(json.map(function(d) { return d["accfall"] })[i]);
-        }        
-     }
+    for (var i in MyData) {
+            var aux = [];
+            aux.push(MyData.map(function(d) { return d["province"]})[i]);
+            aux.push(MyData.map(function(d) { return d["accvictotal"]})[i]);
+            aux.push(MyData.map(function(d) { return d["year"]})[i]);
+            aux.push(MyData.map(function(d) { return d["accvicinter"]})[i]);
+            aux.push(MyData.map(function(d) { return d["accfall"]})[i]);
+            total.push(aux); 
+        }
+    console.log(total);
 
     Highcharts.chart('container', {
     chart: {
@@ -39,7 +33,7 @@ async function loadGraph(){
         text: 'Fuente: Dirección General de Tráfico (DGT)'
     },
     xAxis: {
-        categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+        categories: [],
         tickmarkPlacement: 'on',
         title: {
             enabled: false
@@ -72,13 +66,7 @@ async function loadGraph(){
     },
     series: [{
         name: 'Accidentes con víctimas totales',
-        data: accVictotal
-    }, {
-        name: 'Accidentes con víctimas en vías interurbanas',
-        data: accVicinter
-    }, {
-        name: 'Accidentes con fallecidos',
-        data: accFall
+        data: total
     }]
 });
 }
