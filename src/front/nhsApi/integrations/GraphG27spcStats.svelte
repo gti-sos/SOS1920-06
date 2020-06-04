@@ -10,75 +10,55 @@
         for (var i in MyData) {
             var aux = [];
             aux.push(MyData.map(function(d) { return d["province"]})[i]);
-            aux.push(MyData.map(function(d) { return d["year"]})[i]);
             aux.push(MyData.map(function(d) { return d["urban"]})[i]);
+            aux.push(MyData.map(function(d) { return d["year"]})[i]);
             total.push(aux); 
         }
         for (var i in YourData) {
             var auxOther = [];
             auxOther.push(YourData.map(function(d) { return d["country"]})[i]);
-            auxOther.push(YourData.map(function(d) { return d["year"]})[i]);
             auxOther.push(YourData.map(function(d) { return d["male_rank"]})[i]);
+            auxOther.push(YourData.map(function(d) { return d["year"]})[i]);
             total.push(auxOther); 
         }
         console.log(total);
         Highcharts.chart('container', {
             chart: {
-                type: 'bar'
+                type: 'variwide'
             },
+
             title: {
                 text: 'Integration with G27 api spc-stats'
             },
-            subtitle: {
-                text: 'Source: Sos'
-            },
+
             xAxis: {
-                categories: [total[0][0],total[1][0],total[2][0]],
-                title: {
-                    text: "Provinces and country"
-                }
+                type: 'category'
             },
+
             yAxis: {
-                min: 0,
-                title: {
-                    text: 'Urban and male_rank',
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
-                }
+                name: 'Valor totales'
             },
-            tooltip: {
-                valueSuffix: ' totals and male_ranks'
+
+            caption: {
+                text: 'Province'
             },
-            plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
+
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -40,
-                y: 80,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor:
-                    Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-                shadow: true
-            },
-            credits: {
                 enabled: false
             },
+
             series: [{
-                name: total[0][1],
-                data: [total[0][2], 0,0]
-            }, {
-                name: total[1][1],
-                data: [0,total[1][2], total[2][2]]
+                name: 'Total',
+                data: total,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.0f}'
+                },
+                tooltip: {
+                    pointFormat: 'Urban and male_rank: <b> {point.y}</b><br>' +
+                        'Año: <b> {point.z} </b><br>'
+                },
+                colorByPoint: true
             }]
         });
     }
@@ -86,6 +66,7 @@
 </script>
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/variwide.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"  on:load="{loadGraph}"></script>
@@ -95,9 +76,12 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Bar chart showing horizontal columns. This chart type is often
-            beneficial for smaller screens, as the user can scroll through the data
-            vertically, and axis labels are easy to read.
+            Variwide charts can be used to visualize a second dimension
+            in a column chart. Each data point is given a weight, in
+            addition to its value, determining the width of the column.
+            In this chart, the Y-Axis represents the labor cost of the
+            country, while the column width is proportional to the
+            country's GDP.
         </p>
     </figure>
 </main>
